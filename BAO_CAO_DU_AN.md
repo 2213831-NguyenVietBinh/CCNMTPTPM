@@ -1,370 +1,1005 @@
-# BÁO CÁO TOÀN VĂN
-## ĐỀ TÀI: XÂY DỰNG HỆ THỐNG QUẢN TRỊ NỘI DUNG VÀ BLOG CÁ NHÂN (ANTIGRAVITY BLOG/CMS)
+# BÁO CÁO TOÀN VĂN ĐỀ TÀI NGHIÊN CỨU VÀ XÂY DỰNG
+## ĐỀ TÀI: THIẾT KẾ VÀ PHÁT TRIỂN HỆ THỐNG QUẢN TRỊ NỘI DUNG (CMS) VÀ BLOG CÁ NHÂN THỜI GIAN THỰC (ANTIGRAVITY BLOG/CMS)
+**HỌC PHẦN: CHUYÊN ĐỀ CÔNG NGHỆ MỚI TRONG PHÁT TRIỂN PHẦN MỀM**
 
 ---
 
-### TRANG BÌA
+### TRANG BÌA HỘI ĐỒNG KHOA HỌC
 
-*   **TRƯỜNG ĐẠI HỌC CỦA BẠN**
+*   **TRƯỜNG ĐẠI HỌC ĐÀ LẠT**
 *   **KHOA CÔNG NGHỆ THÔNG TIN**
-*   **BÁO CÁO BÀI TẬP LỚN / ĐỒ ÁN MÔN HỌC**
-*   **TÊN MÔN HỌC**: PHÁT TRIỂN ỨNG DỤNG WEB / CÔNG NGHỆ PHẦN MỀM
-*   **ĐỀ TÀI**: Thiết kế và phát triển hệ thống quản trị nội dung (CMS) và Blog cá nhân thời gian thực sử dụng kiến trúc Next.js và Supabase
-*   **LỚP HỌC**: [Nhập tên lớp của bạn - Ví dụ: KHMT1-K15]
-*   **HỌ VÀ TÊN SINH VIÊN**: [Nhập họ và tên của bạn - Ví dụ: Nguyễn Văn A]
-*   **MÃ SỐ SINH VIÊN**: [Nhập mã sinh viên của bạn - Ví dụ: 20261234]
-*   **NGÀY NỘP**: Ngày 26 tháng 05 năm 2026
+*   **BÀI TẬP LỚN / BÁO CÁO KẾT THÚC HỌC PHẦN**
+*   **TÊN MÔN HỌC**: Chuyên đề Công nghệ mới trong Phát triển Phần mềm (CCNMTPTPM)
+*   **TÊN ĐỀ TÀI**: Thiết kế và phát triển hệ thống quản trị nội dung (CMS) và Blog cá nhân thời gian thực sử dụng kiến trúc Next.js 14 App Router và hệ sinh thái Supabase (BaaS)
+*   **LỚP HỌC**: CTK46-PM
+*   **HỌ VÀ TÊN SINH VIÊN**: Nguyễn Việt Bình
+*   **MÃ SỐ SINH VIÊN**: 2213831
+*   **NGÀY NỘP BÁO CÁO**: Ngày 30 tháng 05 năm 2026
+*   **GIÁO VIÊN HƯỚNG DẪN**: [Nhập tên giảng viên hướng dẫn của bạn]
 
 ---
 
-### MỤC LỤC
+### MỤC LỤC CHI TIẾT
 
-1.  **GIỚI THIỆU ĐỀ TÀI**
-    *   1.1. Bối cảnh của đề tài
-    *   1.2. Mô tả đề tài
-    *   1.3. Mục tiêu xây dựng hệ thống
-2.  **CÔNG NGHỆ SỬ DỤNG**
-    *   2.1. Next.js 14 App Router
-    *   2.2. Hệ sinh thái Supabase (BaaS)
-    *   2.3. Tailwind CSS & Thiết kế giao diện
-    *   2.4. TypeScript
-    *   2.5. Vai trò của từng công nghệ trong dự án
-3.  **KIẾN TRÚC HỆ THỐNG**
-    *   3.1. Sơ đồ kiến trúc tổng thể
-    *   3.2. Thiết kế Cơ sở dữ liệu (ERD)
-    *   3.3. Mô tả chi tiết các bảng dữ liệu
-    *   3.4. Phân tích chính sách Row-Level Security (RLS)
-    *   3.5. Cơ chế Trigger và Stored Procedures trong PostgreSQL
-4.  **PHÂN TÍCH CHỨC NĂNG**
-    *   4.1. Chức năng Đăng ký, Đăng nhập và Xác thực
-    *   4.2. Chức năng Quản lý bài viết (CRUD) cho Tác giả
-    *   4.3. Chức năng Bình luận thời gian thực
-    *   4.4. Chức năng Quản trị hệ thống (Admin Console)
-5.  **AI TRONG PHÁT TRIỂN HỆ THỐNG**
-    *   5.1. Vai trò của công cụ AI đối với Lập trình viên hiện đại
-    *   5.2. Cách thức ứng dụng AI trong thiết kế Cơ sở dữ liệu
-    *   5.3. Sử dụng AI để sinh mã nguồn logic và cấu trúc hệ thống
-    *   5.4. Giải quyết lỗi, gỡ lỗi và tối ưu hiệu năng bằng AI
-    *   5.5. Minh chứng và các mẫu hội thoại với trợ lý AI
-6.  **DOCKER & QUY TRÌNH TRIỂN KHAI (DEPLOYMENT)**
-    *   6.1. Nguyên lý Container hóa với Docker
-    *   6.2. Phân tích cấu trúc Dockerfile đa tầng
-    *   6.3. Cấu hình Docker Compose và quản lý biến môi trường
-    *   6.4. Quy trình triển khai ứng dụng lên máy chủ đám mây
-    *   6.5. Cấu hình Tên miền (Domain) và Chứng chỉ bảo mật (SSL/TLS)
-7.  **KẾT LUẬN & HẠN CHẾ**
-    *   7.1. Kết quả đạt được của dự án
-    *   7.2. Những hạn chế hiện tại của hệ thống
-    *   7.3. Định hướng phát triển và cải tiến trong tương lai
-8.  **TÀI LIỆU THAM KHẢO**
-
----
-
-## 1. GIỚI THIỆU ĐỀ TÀI
-
-### 1.1. Bối cảnh của đề tài
-Trong sự phát triển mạnh mẽ của mạng Internet và các nền tảng số hóa, nhu cầu chia sẻ kiến thức, thông tin và quản trị nội dung ngày càng tăng cao. Đối với các cá nhân như lập trình viên, nhà nghiên cứu, hay các tổ chức truyền thông quy mô nhỏ, việc sở hữu một trang thông tin (Blog) độc lập để đăng tải bài viết là vô cùng quan trọng để xây dựng thương hiệu cá nhân hoặc tiếp cận tệp độc giả mục tiêu.
-
-Tuy nhiên, các giải pháp CMS truyền thống (ví dụ điển hình là WordPress bản cài đặt tự vận hành hoặc các hệ thống Monolithic cũ) bộc lộ nhiều điểm yếu cố hữu:
-*   Tốc độ tải trang chậm do phải truy vấn cơ sở dữ liệu trực tiếp ở mỗi lượt truy cập thông qua các kiến trúc máy chủ cồng kềnh.
-*   Nguy cơ bảo mật cao khi lớp ứng dụng bị tấn công SQL Injection hoặc rò rỉ cơ sở dữ liệu do phân quyền lỏng lẻo.
-*   Hạ tầng vận hành phức tạp, yêu cầu duy trì máy chủ cơ sở dữ liệu và máy chủ ứng dụng hoạt động liên tục 24/7, gây lãng phí chi phí khi lượng truy cập không ổn định.
-*   Trải nghiệm người dùng thiếu tính tương tác trực tiếp do thiếu các tính năng cập nhật nội dung thời gian thực.
-
-Từ bối cảnh đó, xu hướng Jamstack (Javascript, API, Markup) và kiến trúc Serverless ra đời như một giải pháp cứu cánh. Việc kết hợp giữa một ứng dụng phía client mạnh mẽ được tối ưu hóa SEO và một hệ thống Backend dưới dạng dịch vụ (BaaS - Backend as a Service) giúp xây dựng các hệ thống CMS thế hệ mới với hiệu năng cực cao, an toàn tuyệt đối và chi phí tối thiểu.
-
-### 1.2. Mô tả đề tài
-Đề tài tập trung vào việc nghiên cứu, thiết kế và phát triển ứng dụng **Antigravity Blog/CMS** - một hệ thống quản lý nội dung số và blog cá nhân cao cấp. Ứng dụng được thiết kế theo hướng hiện đại, hoạt động mượt mà trên môi trường web với giao diện tối (Dark mode) sang trọng, cấu trúc kính mờ (Glassmorphism) và các chuyển động vi mô (Micro-animations) nhằm tối ưu hóa trải nghiệm thị giác của người dùng.
-
-Hệ thống cho phép các tác giả (Authors) đăng ký tài khoản, đăng nhập qua hệ thống bảo mật, tạo các bài viết hỗ trợ định dạng Markdown phong phú, tải ảnh đại diện lên bộ lưu trữ đám mây, gắn các thẻ phân loại (Tags) linh hoạt và theo dõi số lượt đọc. Đồng thời, hệ thống cung cấp một luồng thảo luận thời gian thực dưới mỗi bài viết, cho phép độc giả trao đổi ý kiến tức thời mà không cần làm mới trang. Đối với cấp quản trị viên (Admin), hệ thống cung cấp bảng điều khiển trung tâm để quản lý toàn diện thành viên, bài viết và bình luận trên hệ thống.
-
-### 1.3. Mục tiêu xây dựng hệ thống
-Dự án được triển khai hướng tới đạt được các mục tiêu kỹ thuật và trải nghiệm sau:
-*   **Tối ưu hóa Hiệu năng và SEO**: Trang web có tốc độ phản hồi ban đầu cực nhanh nhờ cơ chế tiền biên dịch HTML phía máy chủ. Khả năng lập chỉ mục của các công cụ tìm kiếm được tối ưu nhờ việc chèn metadata động theo từng bài viết.
-*   **Bảo mật dữ liệu tuyệt đối**: Áp dụng triệt để chính sách Row-Level Security (RLS) để phân quyền truy cập trực tiếp từ cơ sở dữ liệu, đảm bảo tài khoản thông thường không thể thao túng dữ liệu của người khác.
-*   **Tương tác thời gian thực**: Xây dựng kênh giao tiếp thời gian thực bằng kết nối WebSocket để đồng bộ hóa bình luận giữa tất cả độc giả ngay lập tức.
-*   **Quản trị tinh gọn và Đóng gói dễ dàng**: Hệ thống backend hoạt động hoàn toàn Serverless thông qua Supabase, giúp loại bỏ các thao tác bảo trì máy chủ phức tạp. Toàn bộ ứng dụng được đóng gói trong các Docker Container để có thể triển khai lên bất kỳ đám mây nào chỉ bằng một vài thao tác đơn giản.
+1.  **LỜI MỞ ĐẦU & GIỚI THIỆU CHUNG**
+    *   1.1. Bối cảnh lịch sử phát triển ứng dụng Web và CMS
+    *   1.2. Sự dịch chuyển từ kiến trúc Monolithic sang Headless CMS và Serverless BaaS
+    *   1.3. Đặt vấn đề và tính cấp thiết của đề tài
+    *   1.4. Đối tượng nghiên cứu và phạm vi dự án
+2.  **PHÂN TÍCH YÊU CẦU HỆ THỐNG (REQUIREMENTS SPECIFICATION)**
+    *   2.1. Yêu cầu chức năng (Functional Requirements)
+        *   2.1.1. Phân hệ Xác thực & Phân quyền (Authentication & Authorization)
+        *   2.1.2. Phân hệ Quản trị bài viết (Author CRUD Dashboard)
+        *   2.1.3. Phân hệ Tương tác độc giả (Realtime Comments Engine)
+        *   2.1.4. Phân hệ Quản trị hệ thống (Admin Console)
+    *   2.2. Yêu cầu phi chức năng (Non-Functional Requirements)
+        *   2.2.1. Hiệu năng & Tốc độ tải trang (Web Performance & Core Web Vitals)
+        *   2.2.2. Khả năng bảo mật mức thấp (Database Security & RLS)
+        *   2.2.3. Trải nghiệm người dùng và Thẩm mỹ thiết kế (Aesthetics & UX Design)
+        *   2.2.4. Khả năng tối ưu hóa tìm kiếm (SEO)
+3.  **CƠ SỞ LÝ THUYẾT & CÔNG NGHỆ CHỦ CHỐT**
+    *   3.1. Next.js 14 App Router: Cách mạng hóa kiến trúc Client-Server
+        *   3.1.1. React Server Components (RSC) vs Client Components
+        *   3.1.2. Cơ chế Server Actions và tối ưu hóa luồng dữ liệu
+        *   3.1.3. Caching & Incremental Static Regeneration (ISR)
+    *   3.2. Hệ sinh thái Backend-as-a-Service (BaaS) Supabase
+        *   3.2.1. Bản chất PostgreSQL trong Supabase
+        *   3.2.2. Cơ chế bảo mật phân tầng Row-Level Security (RLS)
+        *   3.2.3. Supabase Storage và Supabase Realtime (WebSocket)
+    *   3.3. Tailwind CSS & Ngôn ngữ lập trình TypeScript
+4.  **THIẾT KẾ CƠ SỞ DỮ LIỆU & PHÂN HỆ BẢO MẬT RLS**
+    *   4.1. Sơ đồ thực thể liên kết (ERD) và các ràng buộc dữ liệu
+    *   4.2. Mã nguồn SQL khởi tạo Schema Cơ sở dữ liệu chi tiết
+    *   4.3. Thiết kế các chính sách bảo mật Row-Level Security (RLS)
+    *   4.4. Cơ chế đồng bộ hóa tự động qua Database Triggers & Functions
+        *   4.4.1. Hàm trigger tạo hồ sơ tự động từ tài khoản Auth
+        *   4.4.2. Stored Procedure tăng lượt đọc (RPC views counter) bảo mật
+5.  **HIỆN THỰC MÃ NGUỒN CHI TIẾT (SOURCE CODE IMPLEMENTATION)**
+    *   5.1. Cấu trúc thư mục dự án Next.js 14 App Router
+    *   5.2. Cấu hình kết nối Supabase Server-side & Client-side
+    *   5.3. Xây dựng phân hệ xác thực và bảo vệ định tuyến (Middleware & Auth Guards)
+    *   5.4. Hiện thực các nghiệp vụ hệ thống qua Server Actions
+    *   5.5. Thiết kế và phát triển Client Components tương tác trực tiếp
+        *   5.5.1. Phân hệ Bình luận Realtime sử dụng WebSockets
+        *   5.5.2. Quản lý tải ảnh trực tiếp lên Supabase Storage
+6.  **ỨNG DỤNG TRÍ TUỆ NHÂN TẠO (AI) TRONG PHÁT TRIỂN PHẦN MỀM**
+    *   6.1. Cuộc cách mạng lập trình viên đồng hành (AI Pair Programmer)
+    *   6.2. Ứng dụng AI trong việc thiết kế cơ sở dữ liệu và viết mã SQL
+    *   6.3. Giải quyết và khắc phục các lỗi logic, tối ưu hóa hệ thống bằng AI
+    *   6.4. Các trường hợp thực tế và Prompt mẫu tương tác với AI
+7.  **DOCKER CONTAINER HÓA & QUY TRÌNH TRIỂN KHAI THỰC TẾ (DEPLOYMENT)**
+    *   7.1. Nguyên lý Container hóa và tối ưu hóa Dockerfile đa tầng (Multi-stage Build)
+    *   7.2. Tệp cấu hình Docker Compose và quản lý biến môi trường bảo mật
+    *   7.3. Quy trình deploy ứng dụng lên máy chủ VPS Linux thực tế
+    *   7.4. Cấu hình Reverse Proxy Nginx & Tự động gia hạn chứng chỉ SSL Let's Encrypt
+8.  **ĐÁNH GIÁ HỆ THỐNG, HẠN CHẾ & HƯỚNG PHÁT TRIỂN TƯƠNG LAI**
+    *   8.1. Đánh giá kết quả đạt được đối chiếu với mục tiêu ban đầu
+    *   8.2. Các hạn chế kỹ thuật hiện tại của hệ thống
+    *   8.3. Hướng phát triển và mở rộng tính năng thương mại hóa
+9.  **TÀI LIỆU THAM KHẢO**
 
 ---
 
-## 2. CÔNG NGHỆ SỬ DỤNG
+## 1. LỜI MỞ ĐẦU & GIỚI THIỆU CHUNG
 
-### 2.1. Next.js 14 App Router
-Next.js 14 là một framework React được phát triển bởi Vercel, hỗ trợ các lập trình viên xây dựng ứng dụng web chất lượng cao với các tính năng tối ưu sẵn có. Trong dự án này, kiến trúc App Router (quản lý định tuyến dựa trên cấu trúc thư mục của dự án) đóng vai trò xương sống của ứng dụng.
-*   **React Server Components (RSC)**: Cho phép các component được dựng trực tiếp trên server trước khi gửi HTML về client. Nhờ đó, trình duyệt không cần tải thêm các thư viện xử lý Javascript cồng kềnh, giảm dung lượng trang tải về và nâng cao tốc độ tải trang đáng kể.
-*   **Server Actions**: Một tính năng đột phá của Next.js cho phép gọi trực tiếp các hàm xử lý phía máy chủ từ các form giao diện hoặc mã JS ở client. Server Actions thay thế hoàn toàn các API routes trung gian, giúp xử lý các hoạt động chỉnh sửa dữ liệu (mutations) an toàn và giảm thiểu mã nguồn trùng lặp.
-*   **Caching & Revalidation**: Next.js hỗ trợ cơ chế lưu cache thông minh. Khi dữ liệu cơ sở dữ liệu thay đổi thông qua Server Actions, hệ thống sẽ gọi các hàm revalidate để xóa cache cũ và cập nhật dữ liệu mới nhất một cách chọn lọc.
+### 1.1. Bối cảnh lịch sử phát triển ứng dụng Web và CMS
+Trải qua nhiều thập kỷ phát triển, World Wide Web đã chuyển dịch mạnh mẽ từ các trang thông tin tĩnh đơn sơ (Web 1.0) sang các nền tảng tương tác động đa chiều thời gian thực (Web 2.0). Nhu cầu lưu trữ, xuất bản và phân phối thông tin là cốt lõi của Internet. Để giải quyết bài toán này, các hệ thống quản trị nội dung (CMS - Content Management System) đã ra đời từ rất sớm. Những cái tên huyền thoại như WordPress, Drupal, Joomla hoạt động theo mô hình Monolithic (mã nguồn ứng dụng giao diện và cơ sở dữ liệu tích hợp làm một) đã thống trị thị trường web trong hơn hai thập kỷ, chiếm hơn 40% số lượng website trên toàn thế giới.
 
-### 2.2. Hệ sinh thái Supabase (BaaS)
-Supabase là giải pháp thay thế mã nguồn mở cho Firebase, hoạt động dựa trên cơ sở dữ liệu quan hệ PostgreSQL mạnh mẽ. Supabase cung cấp đầy đủ các mảnh ghép backend cần thiết cho một ứng dụng hiện đại:
-*   **Database (PostgreSQL)**: Cơ sở dữ liệu lưu trữ toàn bộ dữ liệu có cấu trúc của hệ thống, hỗ trợ các kiểu dữ liệu nâng cao, các ràng buộc dữ liệu chặt chẽ và ngôn ngữ thủ tục PL/pgSQL để xây dựng trigger tự động.
-*   **Supabase Auth**: Dịch vụ quản lý tài khoản, mật khẩu, phiên làm việc (Session) bằng mã hóa mã định danh JWT và cookies. Hỗ trợ xác thực qua email/mật khẩu và các nhà cung cấp dịch vụ bên thứ ba (OAuth).
-*   **Supabase Storage**: Hệ thống lưu trữ đối tượng (Object Storage) dùng để lưu các tệp tin hình ảnh lớn (như ảnh thumbnail bài viết) một cách hiệu quả, hỗ trợ tạo đường dẫn liên kết tĩnh công khai hoặc bảo mật.
-*   **Supabase Realtime**: Dịch vụ cho phép lắng nghe sự thay đổi của cơ sở dữ liệu trực tiếp từ client thông qua giao thức WebSockets, phục vụ xây dựng các tính năng tương tác trực tiếp.
+Tuy nhiên, khi quy chuẩn trải nghiệm người dùng tăng cao và sự đa dạng của các thiết bị đầu cuối xuất hiện (Mobile app, IoT, Smart TV, Web App), kiến trúc CMS truyền thống bắt đầu bộc lộ các giới hạn lớn về mặt hiệu năng tải trang, chi phí vận hành máy chủ, khả năng bảo mật thông tin và khả năng cập nhật thời gian thực.
 
-### 2.3. Tailwind CSS & Thiết kế giao diện
-Tailwind CSS là một framework CSS theo phong cách Utility-first (cung cấp các lớp tiện ích nhỏ, trực tiếp). Nó cho phép lập trình viên xây dựng giao diện tùy biến cao ngay trong mã HTML/JSX mà không cần viết các file CSS riêng lẻ cồng kềnh.
-*   **Đồng bộ giao diện qua biến CSS**: Dự án tận dụng các biến màu sắc HSL trong CSS để xây dựng bảng màu đồng nhất, hỗ trợ đắc lực cho việc chuyển đổi linh hoạt giữa giao diện sáng (Light mode) và giao diện tối (Dark mode).
-*   **Thiết kế Glassmorphism**: Kết hợp các hiệu ứng làm mờ hậu cảnh, viền mờ mịn và màu nền bán trong suốt để tạo ra giao diện sang trọng, thanh thoát.
-*   **Micro-animations**: Áp dụng các hiệu ứng chuyển đổi trạng thái mượt mà khi người dùng tương tác với các nút bấm, danh sách bài viết hoặc trường nhập liệu, gia tăng tính trải nghiệm và độ phản hồi của giao diện.
+### 1.2. Sự dịch chuyển từ kiến trúc Monolithic sang Headless CMS và Serverless BaaS
+Sự ra đời của Jamstack (Javascript, API, Markup) đã khởi xướng cho kỷ nguyên phát triển web hiện đại. Trong mô hình này, giao diện hiển thị (Frontend) được tách biệt hoàn toàn khỏi hệ quản trị dữ liệu (Backend), giao tiếp với nhau thông qua các API REST hoặc GraphQL. Mô hình này được gọi là **Headless CMS**. Nhờ đó:
+*   **Hiệu năng vượt trội**: Mã nguồn frontend được tiền biên dịch ra HTML/CSS tĩnh và lưu trữ trên các mạng lưới phân phối nội dung (CDN), giúp thời gian phản hồi trang ban đầu giảm xuống mức mili-giây.
+*   **Bảo mật tối đa**: Lớp frontend không kết nối trực tiếp đến cơ sở dữ liệu nên loại bỏ hoàn toàn các nguy cơ tấn công SQL Injection hay khai thác lỗi phần mềm quản trị trực tiếp từ giao diện.
+*   **Hạ tầng Serverless**: Sự trỗi dậy của các dịch vụ đám mây Backend-as-a-Service (BaaS) tiêu biểu là Supabase giúp lập trình viên không cần duy trì các máy chủ vật lý cồng kềnh, giảm thiểu chi phí và công sức bảo trì hệ thống.
 
-### 2.4. TypeScript
-TypeScript là ngôn ngữ lập trình mã nguồn mở được phát triển bởi Microsoft, là một siêu tập (superset) của JavaScript bổ sung tính năng kiểm soát kiểu dữ liệu tĩnh (static typing).
-*   **An toàn kiểu dữ liệu (Type Safety)**: Giúp phát hiện sớm các lỗi cú pháp hoặc sai lệch cấu trúc dữ liệu ngay trong quá trình viết code (compile-time) thay vì đợi đến khi chạy ứng dụng (runtime).
-*   **Đồng bộ kiểu từ Cơ sở dữ liệu**: Hỗ trợ định nghĩa cấu trúc chặt chẽ cho các thực thể như Bài viết, Bình luận, Hồ sơ người dùng từ cơ sở dữ liệu Supabase lên tới các component giao diện React.
+### 1.3. Đặt vấn đề và tính cấp thiết của đề tài
+Dù Headless CMS và Jamstack đem lại nhiều lợi ích, việc tích hợp và phát triển một hệ thống Blog cá nhân hoặc CMS hoàn chỉnh vẫn đối mặt với nhiều rào cản kỹ thuật phức tạp:
+1.  **Vấn đề SEO**: Các ứng dụng Single Page Application (SPA) truyền thống gặp khó khăn lớn trong việc lập chỉ mục (indexing) do công cụ tìm kiếm của Google không thể đợi ứng dụng tải Javascript xong mới cào dữ liệu.
+2.  **Khả năng tương tác thời gian thực**: Việc cập nhật thông tin tương tác (như bình luận trực tiếp dưới bài viết) thường đòi hỏi cấu hình các hệ thống Socket.io phức tạp trên máy chủ riêng.
+3.  **Phân quyền bảo mật**: Làm thế nào để đảm bảo tính an toàn cho dữ liệu khi client giao tiếp trực tiếp với cơ sở dữ liệu đám mây?
 
-### 2.5. Vai trò của từng công nghệ trong dự án
-Bảng dưới đây tổng hợp vai trò cụ thể của mỗi công nghệ trong kiến trúc tổng thể của Antigravity Blog/CMS:
+Đề tài **"Thiết kế và phát triển hệ thống quản trị nội dung (CMS) và Blog cá nhân thời gian thực (Antigravity Blog/CMS)"** được thực hiện nhằm giải quyết triệt để các bài toán trên bằng cách kết hợp khung phát triển ứng dụng **Next.js 14 App Router** (hỗ trợ Server-Side Rendering và Server Actions) cùng hệ sinh thái **Supabase BaaS** (tích hợp bảo mật RLS và Realtime Engine dựa trên PostgreSQL).
 
-| Công nghệ | Phân tầng | Vai trò chính trong dự án |
-| :--- | :--- | :--- |
-| **Next.js 14** | Presentation & API Layer | Điều hướng định tuyến, hiển thị giao diện, tối ưu SEO, xử lý Server Actions trung gian. |
-| **PostgreSQL (Supabase)** | Database Layer | Lưu trữ dữ liệu quan hệ, thực thi các chính sách bảo mật RLS, tự động hóa dữ liệu qua trigger. |
-| **Supabase Auth** | Security Layer | Quản lý đăng ký, đăng nhập, cấp và làm mới mã token JWT, phân quyền Router qua Middleware. |
-| **Supabase Storage** | File Storage Layer | Lưu trữ tệp ảnh bìa bài viết trong bucket bảo mật, trả về URL công khai hiển thị trên web. |
-| **Supabase Realtime** | Communication Layer | Duy trì kết nối WebSocket để truyền tải các bình luận mới tức thời tới người đọc. |
-| **Tailwind CSS** | Styling Layer | Xây dựng giao diện Responsive, quản trị bảng màu sắc tối (Dark mode) và hiệu ứng kính mờ. |
-| **TypeScript** | Quality Control Layer | Đảm bảo tính nhất quán của kiểu dữ liệu, nâng cao chất lượng code và hạn chế lỗi runtime. |
+### 1.4. Đối tượng nghiên cứu và phạm vi dự án
+*   **Đối tượng nghiên cứu**: 
+    *   Kiến trúc Next.js App Router (React Server Components, Server Actions).
+    *   Hệ cơ sở dữ liệu quan hệ PostgreSQL và chính sách bảo mật Row-Level Security (RLS).
+    *   Cơ chế truyền tải dữ liệu thời gian thực qua giao thức WebSockets.
+    *   Kỹ thuật đóng gói ứng dụng đa tầng (Multi-stage build) sử dụng Docker.
+*   **Phạm vi dự án**: Thiết kế và triển khai một website hoàn chỉnh bao gồm giao diện đọc tin tức của độc giả công khai (Blog), giao diện quản lý bài viết của tác giả (Dashboard) và giao diện kiểm duyệt nội dung của quản trị viên (Admin Console). Dự án được đóng gói container hóa và deploy lên máy chủ ảo VPS Linux thực tế với tên miền riêng và chứng chỉ bảo mật mã hóa HTTPS.
 
 ---
 
-## 3. KIẾN TRÚC HỆ THỐNG
+## 2. PHÂN TÍCH YÊU CẦU HỆ THỐNG (REQUIREMENTS SPECIFICATION)
 
-### 3.1. Sơ đồ kiến trúc tổng thể
-Hệ thống hoạt động theo mô hình 3 lớp phân tách rõ rệt nhưng liên kết chặt chẽ qua môi trường mạng:
-1.  **Lớp Khách (Client)**: Trình duyệt web của người dùng thực hiện hiển thị giao diện người dùng. Lớp này kết nối trực tiếp tới máy chủ CDN để tải trang tĩnh, gửi các yêu cầu đột biến (mutations) qua Server Actions và duy trì kết nối WebSocket trực tiếp đến máy chủ Realtime để cập nhật các hoạt động thảo luận trực tiếp.
-2.  **Lớp Ứng dụng Serverless (Next.js Application)**: Đóng vai trò là cổng trung gian điều phối. Lớp này chạy trên môi trường Serverless Node.js, chịu trách nhiệm nhận yêu cầu của người dùng, kiểm tra phân quyền thông qua lớp trung gian Middleware, dựng trang HTML trước khi gửi lại trình duyệt và bảo mật các khóa API riêng tư khi giao tiếp với Backend.
-3.  **Lớp Backend và Dữ liệu (Supabase Backend)**: Nơi lưu trữ vĩnh viễn dữ liệu và kiểm soát an toàn thông tin trực tiếp từ mức lõi. PostgreSQL đóng vai trò lưu trữ cấu trúc; bộ lọc RLS chặn đứng các truy vấn sai thẩm quyền; máy chủ lưu trữ Storage tiếp nhận các tệp tin đa phương tiện; và cơ chế Replication lắng nghe thay đổi dữ liệu để phân phối luồng thông tin WebSocket.
+### 2.1. Yêu cầu chức năng (Functional Requirements)
 
-### 3.2. Thiết kế Cơ sở dữ liệu (ERD)
-Cơ sở dữ liệu của ứng dụng được xây dựng trên hệ quản trị cơ sở dữ liệu quan hệ PostgreSQL với sơ đồ thực thể liên kết (ERD) rõ ràng:
-*   Mỗi tài khoản hệ thống (trong bảng xác thực) tương ứng duy nhất với một bản ghi hồ sơ cá nhân trong bảng Hồ sơ người dùng (`profiles`) - quan hệ Một-Một (1:1).
-*   Một tác giả (`profiles`) có thể viết nhiều bài viết (`posts`) - quan hệ Một-Nhiều (1:N).
-*   Một tác giả (`profiles`) có thể viết nhiều bình luận (`comments`) - quan hệ Một-Nhiều (1:N).
-*   Mỗi bài viết (`posts`) có thể chứa nhiều bình luận (`comments`) từ các độc giả khác nhau - quan hệ Một-Nhiều (1:N).
-*   Mối quan hệ Nhiều-Nhiều (M:N) giữa Bài viết (`posts`) và Thẻ phân loại (`tags`) được giải quyết thông qua bảng liên kết trung gian là bảng Thẻ bài viết (`post_tags`).
+Hệ thống **Antigravity Blog/CMS** được phân chia thành 4 phân hệ chức năng chính tương ứng với các vai trò (Roles) người dùng khác nhau bao gồm: Độc giả vãng lai (Guest), Thành viên đã đăng nhập (Author) và Quản trị viên (Admin).
 
-### 3.3. Mô tả chi tiết các bảng dữ liệu
-
-#### 3.3.1. Bảng Hồ sơ người dùng (`profiles`)
-Bảng dùng để lưu thông tin công khai và quyền hạn của thành viên. Khóa chính `id` tham chiếu trực tiếp đến khóa ngoại của bảng hệ thống của Supabase.
-*   **id**: Kiểu UUID, khóa chính. Liên kết trực tiếp tài khoản xác thực.
-*   **username**: Kiểu văn bản, bắt buộc, duy nhất. Dùng làm tên hiển thị độc nhất.
-*   **full_name**: Kiểu văn bản. Họ tên đầy đủ của người dùng.
-*   **avatar_url**: Kiểu văn bản. Đường dẫn liên kết đến ảnh đại diện người dùng.
-*   **bio**: Kiểu văn bản. Đoạn mô tả ngắn về bản thân tác giả.
-*   **role**: Kiểu văn bản, mặc định là tác giả ('author'). Chỉ nhận một trong hai giá trị 'author' hoặc quản trị viên ('admin').
-*   **created_at**: Kiểu mốc thời gian có múi giờ, tự động lấy thời gian hiện tại. Ghi nhận ngày tham gia hệ thống.
-
-#### 3.3.2. Bảng Bài viết (`posts`)
-Bảng chứa toàn bộ nội dung bài viết do các tác giả đăng tải.
-*   **id**: Kiểu UUID, khóa chính, tự động tạo giá trị ngẫu nhiên.
-*   **author_id**: Kiểu UUID, bắt buộc, tham chiếu đến khóa chính của bảng Hồ sơ người dùng. Tự động xóa các bài viết liên quan nếu hồ sơ người dùng bị xóa (Cascade Delete).
-*   **title**: Kiểu văn bản, bắt buộc. Tiêu đề chính của bài viết.
-*   **slug**: Kiểu văn bản, bắt buộc, duy nhất. Chuỗi ký tự không dấu phân cách bởi dấu gạch ngang phục vụ việc tạo đường dẫn SEO tốt hơn.
-*   **content**: Kiểu văn bản. Nội dung bài viết chi tiết viết bằng cú pháp Markdown.
-*   **excerpt**: Kiểu văn bản. Đoạn tóm tắt nội dung bài viết hiển thị ở trang chủ. Nếu để trống, hệ thống sẽ tự trích xuất ký tự đầu tiên của tiêu đề.
-*   **thumbnail_url**: Kiểu văn bản. Liên kết ảnh bìa của bài viết được tải lên lưu trữ đám mây.
-*   **status**: Kiểu văn bản, mặc định là bản nháp ('draft'). Chỉ nhận giá trị bản nháp ('draft') hoặc đã xuất bản ('published').
-*   **view_count**: Kiểu số nguyên, mặc định là 0. Lưu trữ tổng số lượt đọc bài viết.
-*   **created_at**: Kiểu mốc thời gian có múi giờ, tự động lấy thời gian hiện tại.
-*   **updated_at**: Kiểu mốc thời gian có múi giờ, tự động cập nhật mỗi khi có thay đổi.
-
-#### 3.3.3. Bảng Thẻ nhãn (`tags`) và bảng liên kết (`post_tags`)
-*   **tags**: Chứa danh mục các nhãn phân loại bài viết. Cột `id` là khóa chính kiểu UUID tự sinh; cột `name` lưu tên nhãn có ràng buộc duy nhất (Unique) để ngăn chặn trùng lặp.
-*   **post_tags**: Bảng trung gian ánh xạ liên kết Nhiều-Nhiều. Khóa chính của bảng được tạo thành từ sự kết hợp của hai cột khóa ngoại: `post_id` (trỏ đến bài viết) và `tag_id` (trỏ đến nhãn). Cả hai cột đều cấu hình cơ chế xóa bắc cầu để dọn dẹp các liên kết dư thừa khi bài viết hoặc nhãn bị xóa khỏi hệ thống.
-
-#### 3.3.4. Bảng Bình luận (`comments`)
-Bảng lưu trữ thông tin thảo luận dưới các bài viết.
-*   **id**: Kiểu UUID, khóa chính tự sinh.
-*   **post_id**: Kiểu UUID, bắt buộc, tham chiếu đến bài viết chứa bình luận. Xóa liên đới khi bài viết bị xóa.
-*   **author_id**: Kiểu UUID, bắt buộc, tham chiếu đến hồ sơ người viết bình luận.
-*   **content**: Kiểu văn bản, bắt buộc. Nội dung bình luận của người dùng.
-*   **created_at**: Kiểu mốc thời gian có múi giờ, mặc định lấy thời gian hiện tại.
-
-### 3.4. Phân tích chính sách Row-Level Security (RLS)
-Để thiết lập cơ chế bảo mật tối ưu nhất, tất cả các bảng trong cơ sở dữ liệu của dự án đều được kích hoạt tính năng **Row-Level Security (RLS)**. RLS là một cơ chế lọc dữ liệu trực tiếp trong nhân PostgreSQL. Khi một người dùng gửi yêu cầu truy vấn, PostgreSQL sẽ tự động chèn thêm các điều kiện lọc dựa trên danh tính người dùng (đọc từ token xác thực của phiên làm việc hiện tại) trước khi thực hiện quét dữ liệu trên đĩa cứng.
-
-Hệ thống triển khai các chính sách bảo mật chi tiết như sau:
-*   **Bảng Hồ sơ (`profiles`)**: 
-    *   Mọi độc giả (kể cả chưa đăng nhập) đều có quyền đọc thông tin hồ sơ của tác giả khác để hiển thị thông tin người viết bài.
-    *   Chỉ có chính chủ sở hữu của hồ sơ đó (ID hồ sơ trùng khớp với ID tài khoản xác thực) mới được quyền sửa đổi thông tin cá nhân.
-*   **Bảng Bài viết (`posts`)**:
-    *   Độc giả vãng lai chỉ có quyền đọc các bài viết có trạng thái là đã xuất bản ('published').
-    *   Tác giả của bài viết có quyền xem, sửa, và xóa bài viết của mình bất kể trạng thái của bài viết là bản nháp hay đã xuất bản.
-    *   Thành viên đã xác thực tài khoản có quyền thêm mới bài viết, với điều kiện trường ID tác giả gửi lên phải trùng khớp với ID của chính họ.
-*   **Bảng Bình luận (`comments`)**:
-    *   Cho phép tất cả mọi người đọc các bình luận công khai dưới các bài viết.
-    *   Yêu cầu người dùng phải đăng nhập để viết bình luận mới.
-    *   Chỉ người viết bình luận đó mới có quyền xóa bình luận của mình. Tuy nhiên, hệ thống bổ sung chính sách đặc quyền: tác giả của bài viết gốc cũng có quyền xóa bất kỳ bình luận nào nằm dưới bài viết của mình để phục vụ công tác kiểm duyệt nội dung.
-*   **Đặc quyền của Quản trị viên (Admin)**: Hệ thống xây dựng chính sách Admin tối cao. Nếu một người dùng có vai trò trong bảng Hồ sơ là 'admin', các chính sách RLS sẽ tự động trả về giá trị đúng (True) cho mọi hoạt động thêm, đọc, sửa, xóa trên tất cả các bảng dữ liệu, cho phép quản trị viên toàn quyền kiểm soát hệ thống.
-
-### 3.5. Cơ chế Trigger và Stored Procedures trong PostgreSQL
-Để giảm tải xử lý cho ứng dụng Next.js và đảm bảo tính nhất quán dữ liệu không phụ thuộc vào trạng thái của serverless function, dự án xây dựng các trigger và stored procedure viết bằng ngôn ngữ PL/pgSQL chạy trực tiếp trong PostgreSQL:
-
-1.  **Quy trình đồng bộ tài khoản tự động**: Khi người dùng đăng ký tài khoản mới thành công qua hệ thống xác thực Supabase Auth, thông tin đăng ký sẽ được ghi vào bảng hệ thống bảo mật. Một trigger sẽ được kích hoạt ngay sau sự kiện chèn đó để tự động sao chép các thông tin cơ bản (ID người dùng, tên đăng nhập trích xuất từ phần trước ký tự @ của email, tên hiển thị) và chèn một bản ghi mới vào bảng Hồ sơ công khai.
-2.  **Quy trình cập nhật thời gian sửa đổi bài viết**: Mỗi khi tác giả tiến hành chỉnh sửa nội dung bài viết, một trigger chạy trước sự kiện cập nhật (UPDATE) sẽ tự động ghi đè mốc thời gian hiện tại vào trường thời gian cập nhật của bài viết, đảm bảo tính chính xác cho thông tin thời gian mà không cần ứng dụng truyền tham số này lên.
-3.  **Tăng lượt đọc bài viết an toàn (RPC views increment)**: Để tránh tình trạng độc giả thông thường phải được cấp quyền sửa đổi bài viết (gây mất an toàn bảo mật) chỉ để thực hiện việc tăng lượt đọc khi mở xem bài viết, dự án thiết kế một hàm thủ tục lưu trữ (Stored Procedure) với đặc quyền thực thi cao hơn RLS. Khi độc giả mở xem bài viết, ứng dụng Next.js sẽ gọi hàm thủ tục này để tăng giá trị đếm lượt đọc lên 1 đơn vị một cách an toàn mà không làm rò rỉ quyền sửa đổi nội dung bài viết.
-
----
-
-## 4. PHÂN TÍCH CHỨC NĂNG
-
-### 4.1. Chức năng Đăng ký, Đăng nhập và Xác thực
-Hệ thống xác thực là cửa ngõ kiểm soát an ninh của ứng dụng, đảm bảo phân biệt rõ ràng giữa khách vãng lai và thành viên của hệ thống.
-*   **Đăng ký tài khoản**: Người dùng nhập tên đăng nhập mong muốn, họ tên, địa chỉ email hợp lệ và mật khẩu bảo mật. Hệ thống kiểm tra tính hợp lệ của email và độ mạnh của mật khẩu trước khi đăng ký tài khoản mới. Khi đăng ký thành công, hồ sơ người dùng sẽ tự động được khởi tạo thông qua quy trình đồng bộ tự động của database.
-*   **Đăng nhập hệ thống**: Người dùng đăng nhập bằng tài khoản email và mật khẩu. Sau khi xác minh chính xác, hệ thống sẽ lưu trữ phiên làm việc an toàn dưới dạng cookies được mã hóa trên trình duyệt của người dùng. Cookie này có thuộc tính an toàn ngăn chặn các đoạn mã độc hại phía client có thể đọc trộm thông tin (thuộc tính HTTP-only).
-*   **Bảo vệ tuyến đường điều hướng (Middleware Router Protection)**: Khi người dùng cố gắng truy cập các phân vùng quản trị dành riêng cho tác giả hay quản trị viên, Next.js Middleware sẽ kiểm tra sự tồn tại và tính hợp lệ của cookie phiên làm việc. Nếu phát hiện chưa đăng nhập, người dùng sẽ tự động bị chuyển hướng về trang đăng nhập và hiển thị thông báo yêu cầu xác thực.
-
-### 4.2. Chức năng Quản lý bài viết (CRUD) cho Tác giả
-Sau khi đăng nhập thành công, các tác giả có quyền truy cập vào bảng quản lý cá nhân để thực hiện các thao tác quản trị nội dung của riêng mình:
-*   **Giao diện bảng điều khiển**: Hiển thị danh sách toàn bộ các bài viết do chính tác giả đó viết, hiển thị rõ ràng tiêu đề, ngày tạo, trạng thái xuất bản, số lượt xem và các thẻ phân loại đi kèm. Hỗ trợ thanh tìm kiếm nhanh bài viết theo tiêu đề và bộ lọc bài viết theo trạng thái.
-*   **Soạn thảo bài viết mới**: Tác giả nhập tiêu đề bài viết. Hệ thống sẽ tự động chuyển đổi tiêu đề thành chuỗi đường dẫn slug không dấu, loại bỏ ký tự đặc biệt phục vụ cho việc hiển thị URL sạch. Nội dung bài viết được soạn thảo bằng cú pháp Markdown, cho phép tác giả định dạng chữ đậm, chữ nghiêng, chèn tiêu đề con, danh sách liệt kê, trích dẫn nổi bật và các khối mã nguồn lập trình.
-*   **Quản lý Thẻ bài viết (Tags)**: Tác giả có thể nhập các từ khóa phân loại bài viết cách nhau bởi dấu phẩy. Hệ thống tự động phân tách chuỗi ký tự, tìm kiếm các thẻ đã tồn tại trong database để liên kết hoặc tự động tạo thẻ mới nếu chưa có, sau đó lưu thông tin liên kết vào bảng trung gian.
-*   **Tải lên ảnh bìa (Thumbnail Upload)**: Tác giả có thể chọn một tệp hình ảnh từ thiết bị cá nhân để làm ảnh đại diện cho bài viết. Khi chọn tệp, hệ thống sẽ thực hiện tải tệp lên bucket lưu trữ đám mây thông qua API của Supabase Storage, lưu trữ ảnh trong thư mục bảo mật và trả về đường dẫn URL công khai để gán vào thuộc tính bài viết.
-*   **Chỉnh sửa và Xóa bài viết**: Tác giả có thể sửa đổi bất kỳ thông tin nào của bài viết hiện có và thay đổi trạng thái xuất bản. Hành động xóa bài viết sẽ xóa hoàn toàn nội dung và các liên kết thẻ tags liên quan trong database.
-
-### 4.3. Chức năng Bình luận thời gian thực
-Khung thảo luận dưới mỗi bài viết là nơi tương tác chính giữa độc giả và tác giả:
-*   **Hiển thị danh sách bình luận**: Khi độc giả mở đọc một bài viết đã xuất bản, hệ thống sẽ tự động truy vấn toàn bộ các bình luận tương ứng theo thứ tự thời gian tăng dần và hiển thị đầy đủ thông tin tên người viết, thời gian đăng bình luận và nội dung chi tiết.
-*   **Viết bình luận mới**: Nếu độc giả đã đăng nhập tài khoản, khung nhập liệu bình luận sẽ xuất hiện. Độc giả nhập ý kiến phản hồi và gửi đi. Nội dung bình luận được lưu trữ an toàn vào database.
-*   **Cơ chế cập nhật trực tiếp (WebSocket synchronization)**: Khi một bình luận mới được ghi nhận vào database, hệ thống Supabase Realtime sẽ phát tín hiệu thay đổi dữ liệu qua kênh WebSocket đến tất cả các trình duyệt khác đang mở xem bài viết đó. Trình duyệt của độc giả khác sẽ bắt được sự kiện chèn mới, tự động truy vấn bổ sung thông tin hồ sơ của người bình luận và đẩy bình luận mới vào danh sách hiển thị trên màn hình trong thời gian thực mà không cần tải lại trang web.
-*   **Xóa bình luận kiểm duyệt**: Chủ nhân của bình luận hoặc tác giả bài viết có thể nhấn nút xóa bình luận trực tiếp trên giao diện nếu nội dung không phù hợp.
-
-### 4.4. Chức năng Quản trị hệ thống (Admin Console)
-Bảng điều khiển dành riêng cho tài khoản Quản trị viên (Admin) cho phép theo dõi và xử lý các vấn đề nội dung trên toàn hệ thống:
-*   **Bảng quản lý bài viết tổng thể**: Admin xem được danh sách bài viết của tất cả các tác giả trên hệ thống, kèm theo thông tin chi tiết về lượt xem và tác giả. Admin có quyền xóa bất kỳ bài viết nào nếu phát hiện vi phạm bản quyền hoặc nội dung không hợp lệ.
-*   **Bảng kiểm duyệt bình luận**: Hiển thị tập trung toàn bộ các bình luận mới nhất của toàn hệ thống kèm theo bài viết gốc tương ứng. Admin có quyền xóa bỏ các bình luận xúc phạm hoặc spam quảng cáo.
-*   **Bảng quản lý và phân quyền thành viên**: Hiển thị danh sách toàn bộ người dùng đã đăng ký tài khoản trên hệ thống. Admin có thể thực hiện nâng cấp quyền hạn của một Author lên Admin hoặc ngược lại để phân chia công việc quản trị hệ thống. Hệ thống có cơ chế kiểm tra chặn việc Admin tự hạ quyền của chính mình để bảo vệ tài khoản quản trị tối cao của hệ thống.
-
----
-
-## 5. AI TRONG PHÁT TRIỂN HỆ THỐNG
-
-### 5.1. Vai trò của công cụ AI đối với Lập trình viên hiện đại
-Sự phát triển vượt bậc của các mô hình ngôn ngữ lớn (LLMs) đã mở ra một kỷ nguyên mới trong kỹ thuật phần mềm. Việc ứng dụng các trợ lý AI thông minh (như Gemini, Claude, hay các tác nhân lập trình agentic như Antigravity) đã trở thành một phần không thể thiếu trong quy trình phát triển dự án hiện đại. AI không chỉ đóng vai trò là một công cụ tra cứu thông tin nhanh, mà còn hoạt động như một lập trình viên đồng hành (Pair Programmer), hỗ trợ từ khâu lên ý tưởng kiến trúc, thiết kế cơ sở dữ liệu, phát triển logic mã nguồn, kiểm thử cho đến khi đóng gói và tối ưu hóa hệ thống.
-
-### 5.2. Cách thức ứng dụng AI trong thiết kế Cơ sở dữ liệu
-Trong giai đoạn đầu của dự án, thiết kế cơ sở dữ liệu đóng vai trò quyết định đến tính bền vững của ứng dụng. Nhóm phát triển đã sử dụng trợ lý AI để:
-*   Phân tích các yêu cầu nghiệp vụ của hệ thống CMS và đề xuất các bảng dữ liệu cần thiết đạt chuẩn hóa 3NF để tránh dư thừa dữ liệu.
-*   Thiết kế các chính sách bảo mật Row-Level Security (RLS) cho PostgreSQL. AI đã hỗ trợ định nghĩa chính xác các điều kiện logic để đảm bảo tác giả chỉ được sửa bài viết của mình, trong khi quản trị viên có quyền tối cao trên toàn hệ thống.
-*   Xây dựng quy trình tự động hóa bằng ngôn ngữ PL/pgSQL cho các trigger đồng bộ tài khoản từ phân hệ xác thực nội bộ sang phân hệ thông tin công khai và cập nhật thời gian chỉnh sửa bài viết.
-
-### 5.3. Sử dụng AI để sinh mã nguồn logic và cấu trúc hệ thống
-AI đã hỗ trợ đắc lực trong việc xây dựng các khối xử lý logic phức tạp trong dự án:
-*   **Xây dựng Server Actions**: AI đã hỗ trợ viết mã xử lý nghiệp vụ cho việc tạo mới và cập nhật bài viết, đặc biệt là phần logic xử lý danh mục thẻ tags Nhiều-Nhiều phức tạp, bao gồm việc dọn dẹp các mối liên kết cũ và tạo mới các mối liên kết tương ứng.
-*   **Tích hợp Supabase Realtime**: AI đã hướng dẫn chi tiết quy trình thiết lập các hook React lắng nghe sự kiện thay đổi dữ liệu của database qua kênh WebSocket, đảm bảo việc lọc chính xác bình luận theo từng ID bài viết cụ thể và giải phóng tài nguyên mạng khi component bị hủy.
-*   **Thiết lập các Middleware an toàn**: Hỗ trợ thiết kế bộ lọc đường dẫn Next.js Middleware để giải mã mã token JWT từ cookies và chuyển hướng người dùng đăng nhập hợp lý.
-
-### 5.4. Giải quyết lỗi, gỡ lỗi và tối ưu hiệu năng bằng AI
-Trong quá trình phát triển, dự án gặp phải một số lỗi phức tạp liên quan đến cơ chế chạy của Serverless và React Server Components:
-*   *Lỗi không đồng bộ dữ liệu sau khi sửa bài viết*: Dữ liệu hiển thị ở trang chủ vẫn là phiên bản cũ do Next.js lưu cache tĩnh. Trợ lý AI đã phát hiện ra nguyên nhân và đề xuất tích hợp hàm làm mới cache đường dẫn của Next.js vào cuối mỗi Server Action để ép buộc hệ thống tái tạo lại trang giao diện mới nhất.
-*   *Lỗi tải tệp tin lên bộ lưu trữ đám mây*: Gặp lỗi phân quyền lưu trữ do cấu hình RLS của Storage Bucket không khớp với danh tính người dùng hiện tại. AI đã hỗ trợ cấu hình chính xác chính sách lưu trữ đối tượng cho phép người dùng đã đăng nhập được tải ảnh lên thư mục cá nhân.
-*   *Tối ưu hóa thời gian tải trang*: AI đã phân tích cấu trúc bundle size của ứng dụng và đề xuất chuyển đổi bộ thư viện biên dịch Markdown nặng từ phía client sang biên dịch hoàn toàn trên máy chủ sử dụng React Server Components, giúp cải thiện đáng kể điểm hiệu năng tải trang ban đầu.
-
-### 5.5. Minh chứng và các mẫu hội thoại với trợ lý AI
-Dưới đây mô tả lại quy trình làm việc thực tế với trợ lý AI thông qua các prompt yêu cầu (đã được lược bỏ mã nguồn thô):
-
-*   **Yêu cầu thiết kế RLS của tác giả bài viết**:
-    *   *Người dùng*: "Tôi cần thiết lập chính sách Row-Level Security cho bảng bình luận (comments) trong cơ sở dữ liệu PostgreSQL của Supabase. Yêu cầu là bất kỳ ai cũng đọc được bình luận, người dùng đăng nhập mới được tạo bình luận, và chỉ tác giả của bình luận hoặc tác giả của bài viết gốc chứa bình luận đó mới có quyền xóa. Hãy mô tả giải pháp logic bằng ngôn ngữ SQL hoặc giải thích chi tiết."
-    *   *Phản hồi của AI*: Trợ lý AI đã giải thích cấu trúc RLS của PostgreSQL và đưa ra ba chính sách bảo mật riêng biệt: Chính sách SELECT cho phép tự do đọc dữ liệu bằng điều kiện True; chính sách INSERT kiểm tra ID tác giả bình luận khớp với ID phiên làm việc thông qua hàm xác thực nội bộ của Supabase; và chính sách DELETE kết hợp toán tử OR giữa việc kiểm tra ID tác giả bình luận và một câu lệnh truy vấn phụ (subquery) kiểm tra sự tồn tại của bài viết tương ứng có ID tác giả trùng với ID người dùng hiện tại.
-*   **Yêu cầu thiết kế quy trình tải ảnh lên bộ lưu trữ**:
-    *   *Người dùng*: "Làm thế nào để xây dựng tính năng tải ảnh đại diện bài viết lên Supabase Storage từ một Client Component trong Next.js 14, sau đó gửi đường dẫn ảnh về lưu vào database? Hãy phân tích các bước xử lý logic."
-    *   *Phản hồi của AI*: AI đã phân tích quy trình thành bốn bước: Bước 1 là khởi tạo trình chọn tệp trong React; Bước 2 sử dụng thư viện Supabase Browser Client để tải trực tiếp tệp tin vào bucket chỉ định dưới dạng đường dẫn ngẫu nhiên tránh trùng lặp; Bước 3 sử dụng hàm lấy URL công khai để nhận về liên kết tĩnh của ảnh; và Bước 4 là chèn URL đó vào trường dữ liệu tương ứng của biểu mẫu gửi sang Server Action để lưu vào database.
-
----
-
-## 6. DOCKER & QUY TRÌNH TRIỂN KHAI (DEPLOYMENT)
-
-### 6.1. Nguyên lý Container hóa với Docker
-Container hóa là phương pháp ảo hóa cấp độ hệ điều hành, cho phép đóng gói ứng dụng cùng với toàn bộ các phụ thuộc môi trường (thư viện hệ thống, runtime Node.js, cấu hình mạng) vào một Docker Image duy nhất. 
-
-Việc sử dụng Docker đem lại những lợi ích to lớn cho ứng dụng Antigravity Blog/CMS:
-*   **Loại bỏ lỗi môi trường**: Đảm bảo ứng dụng hoạt động hoàn toàn đồng nhất trên máy tính cá nhân của lập trình viên, trên môi trường kiểm thử và trên máy chủ sản xuất thực tế.
-*   **Khởi động nhanh và Tiết kiệm tài nguyên**: Các container chia sẻ chung nhân hệ điều hành của máy chủ vật lý, giúp thời gian khởi động ứng dụng chỉ mất vài giây và tiêu tốn cực ít tài nguyên RAM/CPU so với máy ảo truyền thống.
-*   **Dễ dàng mở rộng**: Hỗ trợ triển khai nhanh chóng nhiều phiên bản ứng dụng chạy song song phía sau một bộ cân bằng tải khi lưu lượng độc giả tăng đột biến.
-
-### 6.2. Phân tích cấu trúc Dockerfile đa tầng
-Để tối ưu dung lượng và nâng cao tính bảo mật cho ứng dụng chạy thực tế, dự án sử dụng cấu hình **Dockerfile đa tầng (Multi-stage build)**. Quy trình build image được chia thành 3 giai đoạn độc lập:
-
-1.  **Giai đoạn tải phụ thuộc (Stage 1: Dependencies)**:
-    *   Sử dụng ảnh nền Node.js phiên bản Alpine (phiên bản Linux siêu gọn nhẹ tối ưu cho container).
-    *   Tiến hành sao chép các tệp tin cấu hình quản lý thư viện vào container và chạy lệnh cài đặt thư viện ở chế độ tối ưu hóa cho môi trường phát triển để chuẩn bị cho quá trình biên dịch.
-2.  **Giai đoạn biên dịch ứng dụng (Stage 2: Builder)**:
-    *   Kế thừa lớp môi trường từ giai đoạn 1, sao chép toàn bộ mã nguồn của dự án vào container.
-    *   Thực hiện câu lệnh biên dịch dự án Next.js. Quá trình biên dịch sẽ tối ưu hóa mã nguồn, thực hiện tiền biên dịch các trang tĩnh và đóng gói ứng dụng Next.js thành dạng chạy độc lập (standalone).
-3.  **Giai đoạn vận hành thực tế (Stage 3: Runner)**:
-    *   Khởi tạo một container Alpine Node.js hoàn toàn sạch.
-    *   Chỉ sao chép các tệp tin sản phẩm đã biên dịch xong từ Stage 2 (thư mục public, thư mục static đã nén, và tệp thực thi độc lập).
-    *   *Bảo mật*: Khởi tạo một nhóm người dùng hệ thống mới không có đặc quyền quản trị (Non-root user) và gán quyền sở hữu thư mục ứng dụng cho người dùng này. Container sẽ được khởi chạy dưới danh nghĩa người dùng hạn chế quyền này để ngăn chặn nguy cơ kẻ tấn công chiếm quyền kiểm soát máy chủ vật lý nếu ứng dụng web có lỗ hổng.
-    *   Mở cổng mạng 3000 và thiết lập câu lệnh khởi chạy server.js để bắt đầu nhận yêu cầu truy cập.
-
-### 6.3. Cấu hình Docker Compose và quản lý biến môi trường
-Docker Compose là công cụ hỗ trợ định nghĩa và vận hành các ứng dụng Docker đa container thông qua một file cấu hình dạng YAML. Trong dự án, Docker Compose đóng vai trò:
-*   Định nghĩa dịch vụ web tương ứng với Dockerfile đã xây dựng.
-*   Cấu hình cổng mạng ánh xạ cổng 3000 của container ra cổng 3000 của máy chủ vật lý.
-*   Liên kết và nạp tự động các biến môi trường cấu hình kết nối của hệ thống (URL của dự án Supabase, mã khóa API công khai, mã khóa bảo mật của serverless action, địa chỉ tên miền chính thức của trang web) từ tệp cấu hình môi trường bên ngoài vào trong container khi khởi chạy. Điều này giúp tách biệt hoàn toàn thông tin bảo mật cấu hình ra khỏi mã nguồn của dự án.
-*   Thiết lập chế độ tự động khởi động lại container nếu gặp sự cố crash hệ thống để đảm bảo dịch vụ luôn trực tuyến 24/7.
-
-### 6.4. Quy trình triển khai ứng dụng lên máy chủ đám mây
-Quy trình triển khai ứng dụng lên máy chủ VPS chạy hệ điều hành Linux (như Ubuntu Server) được thực hiện theo các bước chi tiết sau:
-
-```mermaid
-graph LR
-    Local[Máy phát triển / Git Push] -->|Git Repository| Github[Github / Version Control]
-    Github -->|Webhooks / Pull| VPS[Máy chủ VPS chạy Linux]
-    VPS -->|Nạp biến môi trường| Env[.env file]
-    VPS -->|Docker Build & Run| DockerCompose[Docker Compose / Port 3000]
-    DockerCompose <-->|Reverse Proxy| Nginx[Nginx Web Server]
-    Nginx <-->|SSL Handshake| Certbot[Let's Encrypt / SSL]
-    Nginx <-->|Public Internet| User([Độc giả truy cập trang web])
+```
+                  ┌─────────────────────────────────────────┐
+                  │          ANTIGRAVITY BLOG/CMS           │
+                  └────────────────────┬────────────────────┘
+                                       │
+         ┌─────────────────────────────┼─────────────────────────────┐
+         ▼                             ▼                             ▼
+┌─────────────────┐           ┌─────────────────┐           ┌─────────────────┐
+│     GUEST       │           │     AUTHOR      │           │      ADMIN      │
+├─────────────────┤           ├─────────────────┤           ├─────────────────┤
+│ - Xem bài viết  │           │ - Viết bài mới  │           │ - Nâng/Hạ quyền │
+│ - Tìm kiếm bài  │           │ - Quản lý CRUD  │           │ - Xóa mọi bài   │
+│ - Xem bình luận │           │ - Tải ảnh bìa   │           │ - Xóa bình luận │
+│ - Đăng ký tài   │           │ - Quản lý tags  │           │ - Kiểm duyệt    │
+│   khoản         │           │ - Xóa bài viết  │           │   thành viên    │
+└─────────────────┘           └─────────────────┘           └─────────────────┘
 ```
 
-1.  **Chuẩn bị máy chủ**: Thuê máy chủ ảo VPS từ các nhà cung cấp, thực hiện cài đặt môi trường Docker và Docker Compose lên hệ điều hành.
-2.  **Đồng bộ mã nguồn**: Đẩy mã nguồn dự án lên một kho lưu trữ Git bảo mật (như GitHub). Thực hiện clone mã nguồn từ kho lưu trữ về thư mục làm việc trên máy chủ VPS.
-3.  **Cấu hình môi trường**: Tạo tệp tin cấu hình môi trường chính thức trên máy chủ VPS, điền đầy đủ các khóa kết nối Supabase thực tế dành riêng cho phiên bản chạy chính thức (Production).
-4.  **Khởi động Container**: Chạy lệnh khởi chạy Docker Compose ở chế độ chạy ngầm. Hệ thống sẽ tự động thực hiện tải ảnh nền, biên dịch dự án Next.js và khởi động máy chủ ứng dụng tại cổng 3000.
-5.  **Cấu hình Nginx làm Reverse Proxy**: Cài đặt máy chủ web Nginx trên VPS để làm proxy ngược. Nginx sẽ lắng nghe cổng mạng tiêu chuẩn 80 (HTTP) và 443 (HTTPS) từ Internet, nhận các yêu cầu truy cập và chuyển tiếp nội bộ tới ứng dụng Docker đang chạy ở cổng 3000. Cấu hình này giúp tăng cường tính bảo mật và khả năng xử lý tải của máy chủ.
+#### 2.1.1. Phân hệ Xác thực & Phân quyền (Authentication & Authorization)
+*   **Đăng ký tài khoản (Register)**: Cho phép khách truy cập tạo tài khoản thành viên mới bằng cách cung cấp Tên đăng nhập (username), Họ và tên (full name), Email hợp lệ và Mật khẩu (độ dài tối thiểu 6 ký tự).
+*   **Đăng nhập hệ thống (Login)**: Xác thực danh tính thành viên thông qua email và mật khẩu. Hệ thống sẽ lưu giữ thông tin đăng nhập bằng Cookie an toàn.
+*   **Đăng xuất (Logout)**: Hủy bỏ phiên làm việc hiện tại, xóa cookies xác thực và chuyển hướng người dùng về trang chủ.
+*   **Bảo vệ định tuyến (Auth Guard Middleware)**: Ngăn chặn người dùng chưa xác thực truy cập vào khu vực `/dashboard` hay `/admin`. Đồng thời, chuyển hướng người dùng đã đăng nhập tránh xa các trang đăng ký/đăng nhập nếu họ cố truy cập lại.
 
-### 6.5. Cấu hình Tên miền (Domain) và Chứng chỉ bảo mật (SSL/TLS)
-Để trang web hoạt động chính thức và an toàn cho thông tin người dùng đăng nhập:
-*   **Trỏ tên miền**: Truy cập vào trang quản lý tên miền đã mua, tạo bản ghi A trỏ địa chỉ IP của máy chủ VPS về tên miền chính thức của bạn (ví dụ: `myblog.com`), hoặc tạo bản ghi CNAME nếu sử dụng các dịch vụ CDN trung gian.
-*   **Thiết lập chứng chỉ bảo mật SSL**: Sử dụng công cụ Certbot để xin cấp chứng chỉ bảo mật miễn phí từ tổ chức Let's Encrypt. Certbot sẽ tự động thực hiện xác minh quyền sở hữu tên miền, tải về chứng chỉ bảo mật và cấu hình tự động vào máy chủ web Nginx.
-*   **Cấu hình chuyển hướng an toàn**: Nginx được cấu hình để tự động chuyển hướng toàn bộ các yêu cầu truy cập không bảo mật qua giao thức HTTP (cổng 80) sang kết nối mã hóa an toàn HTTPS (cổng 443) sử dụng các thuật toán mã hóa hiện đại, đảm bảo thông tin phiên làm việc của người dùng luôn được mã hóa an toàn trên đường truyền internet.
+#### 2.1.2. Phân hệ Quản trị bài viết (Author CRUD Dashboard)
+Dành cho thành viên sau khi đăng nhập để tự quản lý nội dung của chính họ:
+*   **Xem danh sách bài viết (Read)**: Hiển thị bảng tổng hợp bài viết cá nhân kèm trạng thái (Draft hoặc Published), số lượt đọc, ngày tạo và các thẻ tags được liên kết.
+*   **Tạo mới bài viết (Create)**: Tác giả soạn thảo tiêu đề, viết tóm tắt ngắn, và nhập nội dung chi tiết sử dụng định dạng Markdown.
+*   **Quản lý Thẻ phân loại (Tags Management)**: Hỗ trợ gắn nhiều nhãn từ khóa phân loại bài viết. Hệ thống tự động tách chuỗi theo dấu phẩy, liên kết thẻ có sẵn hoặc tự động tạo thẻ mới nếu chưa tồn tại trong cơ sở dữ liệu.
+*   **Tải ảnh bìa (Thumbnail Upload)**: Cho phép tải file ảnh đại diện bài viết trực tiếp lên dịch vụ Supabase Storage và lưu lại đường dẫn URL ảnh công khai vào database.
+*   **Chỉnh sửa bài viết (Update)**: Cập nhật nội dung bài viết, sửa đổi ảnh bìa, thay đổi danh sách tags và chuyển đổi trạng thái bài viết từ bản nháp (Draft) sang xuất bản (Published) để hiển thị công khai.
+*   **Xóa bài viết (Delete)**: Cho phép tác giả xóa vĩnh viễn bài viết của họ, hệ thống sẽ tự động dọn dẹp các bản ghi liên kết tags trong bảng trung gian.
+
+#### 2.1.3. Phân hệ Tương tác độc giả (Realtime Comments Engine)
+*   **Xem bình luận**: Bất kỳ ai mở trang chi tiết bài viết đều có thể đọc danh sách các bình luận hiện có được sắp xếp tuần tự theo thời gian.
+*   **Viết bình luận**: Độc giả đã đăng nhập tài khoản có thể gửi ý kiến đánh giá trực tiếp dưới bài viết.
+*   **Đồng bộ thời gian thực**: Khi có bình luận mới gửi lên cơ sở dữ liệu, toàn bộ các trình duyệt đang mở trang bài viết đó phải tự động cập nhật và hiển thị bình luận mới ngay lập tức mà không cần bấm làm mới trang (F5).
+*   **Xóa bình luận**: Cho phép người viết bình luận tự xóa bình luận của họ. Ngoài ra, tác giả của bài viết gốc có quyền xóa bất kỳ bình luận nào dưới bài viết của mình để bảo vệ không gian thảo luận lành mạnh.
+
+#### 2.1.4. Phân hệ Quản trị hệ thống (Admin Console)
+Dành riêng cho các tài khoản có vai trò là quản trị viên (`role = 'admin'`):
+*   **Quản lý người dùng**: Xem danh sách toàn bộ các thành viên đã đăng ký trong hệ thống. Có quyền thay đổi vai trò (Role) của người dùng từ Tác giả (`author`) lên Quản trị viên (`admin`) và ngược lại.
+*   **Bảo vệ đặc quyền Admin**: Hệ thống có cơ chế kiểm duyệt chặt chẽ, không cho phép một quản trị viên tự hạ quyền của bản thân nhằm tránh lỗi mất quyền admin cao nhất trên toàn hệ thống.
+*   **Kiểm duyệt nội dung bài viết**: Quản trị viên có quyền xóa bất kỳ bài viết nào trên hệ thống nếu nội dung vi phạm quy chế hoặc pháp luật.
+*   **Kiểm duyệt bình luận**: Cho phép Admin xóa bỏ mọi bình luận phản cảm hoặc mang tính chất spam của độc giả.
+
+### 2.2. Yêu cầu phi chức năng (Non-Functional Requirements)
+
+#### 2.2.1. Hiệu năng & Tốc độ tải trang (Web Performance & Core Web Vitals)
+*   Thời gian phản hồi trang đầu tiên (TTFB) phải dưới 200ms.
+*   Chỉ số dựng nội dung lớn nhất (LCP - Largest Contentful Paint) đạt dưới 2.0 giây trên cả thiết bị di động và máy tính.
+*   Trang web phải hoạt động mượt mà bằng cách nén dung lượng ảnh tải lên và biên dịch Markdown ở phía máy chủ.
+
+#### 2.2.2. Khả năng bảo mật mức thấp (Database Security & RLS)
+*   Hệ thống không phụ thuộc hoàn toàn vào mã bảo vệ ở ứng dụng mà phải bật Row-Level Security (RLS) ở mức lõi PostgreSQL.
+*   Mọi giao dịch sửa đổi dữ liệu từ client đều phải đi qua các lớp chính sách kiểm tra danh tính thông qua mã JWT do Supabase Auth cung cấp.
+*   Tuyệt đối không đẩy các biến môi trường cấu hình kết nối nhạy cảm (như khóa bí mật của Server, thông tin tài khoản admin) vào mã nguồn đẩy lên GitHub.
+
+#### 2.2.3. Trải nghiệm người dùng và Thẩm mỹ thiết kế (Aesthetics & UX Design)
+*   **Rich Aesthetics**: Giao diện website phải mang thiết kế hiện đại cao cấp, sử dụng bảng màu tối (Dark Mode) huyền bí làm chủ đạo, kết hợp hiệu ứng kính mờ (Glassmorphism) để tạo chiều sâu trực quan.
+*   Sử dụng font chữ hiện đại (như Inter hoặc Outfit) thay thế cho các font chữ mặc định của trình duyệt.
+*   **Micro-animations**: Áp dụng các hiệu ứng chuyển động mượt mà (hover effects, fade-in transitions) khi tương tác với các nút bấm, danh sách bài viết hoặc khi gửi bình luận mới.
+
+#### 2.2.4. Khả năng tối ưu hóa tìm kiếm (SEO)
+*   Mỗi bài viết khi hiển thị chi tiết phải có tiêu đề, đoạn mô tả (description) và hình ảnh xem trước (Open Graph Image) động tương ứng với nội dung thực tế của bài viết đó.
+*   URL của trang chi tiết phải sử dụng định dạng thân thiện SEO (SEO-friendly slug) thay vì sử dụng các mã ID số hay UUID vô nghĩa.
 
 ---
 
-## 7. KẾT LUẬN & HẠN CHẾ
+## 3. CƠ SỞ LÝ THUYẾT & CÔNG NGHỆ CHỦ CHỐT
 
-### 7.1. Kết quả đạt được của dự án
-Sau thời gian nghiên cứu và thực hiện phát triển ứng dụng, dự án **Antigravity Blog/CMS** đã đạt được các kết quả nổi bật sau:
-*   Xây dựng thành công một ứng dụng quản trị nội dung hoàn chỉnh, đáp ứng đầy đủ các tính năng của một CMS hiện đại.
-*   Tối ưu hóa thành công hiệu năng tải trang thông qua việc ứng dụng công nghệ React Server Components và Server Actions của Next.js 14, đạt điểm số tối ưu cực cao trên công cụ Google Lighthouse.
-*   Đảm bảo an toàn tuyệt đối cho cơ sở dữ liệu nhờ hệ thống chính sách bảo mật Row-Level Security chặn lọc dữ liệu ngay từ mức PostgreSQL.
-*   Triển khai thành công tính năng bình luận thời gian thực mượt mà thông qua kết nối WebSocket của Supabase Realtime, mang lại trải nghiệm tương tác trực tiếp sinh động.
-*   Hoàn thành việc container hóa ứng dụng bằng Docker giúp tối ưu hóa dung lượng ảnh đóng gói và đơn giản hóa quy trình triển khai lên môi trường máy chủ thực tế.
+### 3.1. Next.js 14 App Router: Cách mạng hóa kiến trúc Client-Server
 
-### 7.2. Những hạn chế hiện tại của hệ thống
-Mặc dù đạt được nhiều mục tiêu quan trọng, ứng dụng vẫn có một số mặt hạn chế cần nhìn nhận để cải tiến:
-*   Trình soạn thảo bài viết hiện tại mới chỉ là vùng nhập liệu thô (textarea), yêu cầu tác giả phải ghi nhớ cú pháp Markdown thủ công để viết bài, chưa hỗ trợ giao diện chỉnh sửa trực quan (WYSIWYG).
-*   Luồng bình luận dưới bài viết mới chỉ hiển thị dưới dạng danh sách phẳng theo thời gian, chưa hỗ trợ tính năng trả lời bình luận theo nhánh (Reply / Threaded comments) để các độc giả trao đổi chuyên sâu với nhau.
-*   Bộ đếm lượt xem bài viết hiện tại chỉ tăng lượt xem mỗi lần render trang chi tiết mà chưa tích hợp kiểm tra IP hoặc phiên làm việc của người đọc, dẫn đến việc số liệu lượt đọc có thể bị làm giả nếu người dùng tải lại trang liên tục.
+Next.js 14 giới thiệu một mô hình tư duy phát triển web hoàn toàn mới, thay thế cho cấu trúc Pages Router cũ bằng App Router hoạt động dựa trên cơ chế React Server Components (RSC).
 
-### 7.3. Định hướng phát triển và cải tiến trong tương lai
-Để hoàn thiện hệ thống trở thành một sản phẩm thương mại chất lượng cao, các hướng phát triển tiếp theo được hoạch định bao gồm:
-1.  **Tích hợp trình soạn thảo WYSIWYG hiện đại**: Thay thế vùng nhập liệu cũ bằng các thư viện biên tập nội dung trực quan, hỗ trợ xem trước định dạng trực tiếp, kéo thả ảnh trực quan và tự động căn chỉnh bố cục.
-2.  **Cải tiến hệ thống bình luận đa cấp**: Thiết kế lại bảng Bình luận bổ sung thêm mối liên kết tự tham chiếu để hỗ trợ lưu trữ các phản hồi con dưới mỗi bình luận cha, phục vụ thảo luận chuyên sâu.
-3.  **Tích hợp trợ lý AI tạo nội dung**: Kết nối trực tiếp hệ thống viết bài với các mô hình AI (như Gemini API) để hỗ trợ tác giả tự động tóm tắt bài viết, tạo trích dẫn tự động, tối ưu hóa SEO từ khóa và gợi ý sửa lỗi chính tả trực tiếp trong quá trình soạn thảo.
-4.  **Tối ưu hóa đếm lượt xem bằng Redis**: Tích hợp một dịch vụ lưu trữ dữ liệu tạm thời trong bộ nhớ (như Redis) để lưu giữ địa chỉ IP của độc giả trong vòng 24 giờ, ngăn chặn việc tăng lượt đọc ảo.
-5.  **Hỗ trợ đa ngôn ngữ**: Xây dựng cấu trúc định tuyến đa ngôn ngữ để cho phép dịch nội dung bài viết và giao diện hiển thị sang các ngôn ngữ khác nhau phục vụ độc giả quốc tế.
+```
+                      ┌────────────────────────┐
+                      │  Next.js 14 App Router │
+                      └───────────┬────────────┘
+                                  │
+         ┌────────────────────────┴────────────────────────┐
+         ▼                                                 ▼
+┌─────────────────────────────────┐       ┌─────────────────────────────────┐
+│     React Server Components     │       │     React Client Components     │
+├─────────────────────────────────┤       ├─────────────────────────────────┤
+│ - Mặc định trong thư mục app/    │       │ - Đánh dấu bằng 'use client'    │
+│ - Dựng HTML trực tiếp trên Server│       │ - Chạy trên trình duyệt         │
+│ - Bảo mật API keys, giảm Bundle │       │ - Xử lý tương tác, hook: state, │
+│ - Truy cập DB trực tiếp         │       │   effect, click events          │
+└─────────────────────────────────┘       └─────────────────────────────────┘
+```
+
+#### 3.1.1. React Server Components (RSC) vs Client Components
+Trong Next.js 14, mọi component nằm trong thư mục `/app` mặc định đều là Server Components. Chúng được thực thi hoàn toàn trên máy chủ Node.js và trả về kết quả là cấu trúc HTML thuần túy cho trình duyệt.
+*   **React Server Components**: Cho phép lập trình viên truy vấn cơ sở dữ liệu trực tiếp, gọi các API bảo mật mà không sợ làm lộ thông tin nhạy cảm ở trình duyệt. Dung lượng mã nguồn JS tải về client giảm thiểu tối đa vì không cần tải các thư viện xử lý nặng.
+*   **React Client Components**: Chỉ được sử dụng khi ứng dụng cần các tương tác động với người dùng (ví dụ: lắng nghe sự kiện click, sử dụng các hook của React như `useState`, `useEffect`, `useRef`). Client Components được đánh dấu bằng chỉ thị `"use client"` ở dòng đầu tiên của file.
+
+#### 3.1.2. Cơ chế Server Actions và tối ưu hóa luồng dữ liệu
+Server Actions là một tính năng cốt lõi cho phép định nghĩa các hàm xử lý chạy hoàn toàn phía Server nhưng có thể được kích hoạt trực tiếp từ phía Client (ví dụ qua sự kiện onSubmit của thẻ form hoặc thông qua cú pháp gọi hàm bình thường).
+*   Không cần phải viết mã cấu hình định tuyến API Route trung gian (`/api/posts`).
+*   Tự động bảo mật kiểu dữ liệu nhờ tính năng tích hợp chặt chẽ của TypeScript giữa hai đầu Client-Server.
+*   Tự động đồng bộ hóa trạng thái giao diện nhờ cơ chế `revalidatePath` hoặc `revalidateTag` để làm mới cache dữ liệu tức thời.
+
+#### 3.1.3. Caching & Incremental Static Regeneration (ISR)
+Next.js 14 hỗ trợ một cơ chế lưu cache dữ liệu cực kỳ mạnh mẽ ở 4 cấp độ khác nhau. Nhờ có các Server Actions, lập trình viên có thể chỉ định làm mới cache của một trang cụ thể khi có sự thay đổi dữ liệu thực sự trong database, đảm bảo tốc độ phản hồi trang như một website tĩnh nhưng nội dung luôn được cập nhật chính xác.
+
+### 3.2. Hệ sinh thái Backend-as-a-Service (BaaS) Supabase
+
+Supabase là hệ thống nền tảng backend mã nguồn mở mạnh mẽ nhất hiện nay, cung cấp các công cụ đầy đủ để vận hành ứng dụng mà không cần viết mã backend truyền thống.
+
+#### 3.2.1. Bản chất PostgreSQL trong Supabase
+Không giống các dịch vụ NoSQL như Firebase Firestore, Supabase được xây dựng dựa trên hệ quản trị cơ sở dữ liệu quan hệ **PostgreSQL**. Điều này mang lại sức mạnh vượt trội về khả năng ràng buộc toàn vẹn dữ liệu, hỗ trợ truy vấn JOIN phức tạp, đánh chỉ mục tối ưu và viết các trigger, function xử lý logic trực tiếp ngay trong nhân database.
+
+#### 3.2.2. Cơ chế bảo mật phân tầng Row-Level Security (RLS)
+Bảo mật RLS là trái tim của Supabase. Khi RLS được kích hoạt trên một bảng dữ liệu, mọi truy vấn (SELECT, INSERT, UPDATE, DELETE) đều bị PostgreSQL chặn lại để kiểm tra với các luật logic được định nghĩa trước. PostgreSQL sử dụng thông tin của token xác thực JWT (chứa thông tin ID người dùng hiện tại thông qua hàm `auth.uid()`) để xác minh xem người dùng đó có quyền thao tác trên dòng dữ liệu cụ thể đó hay không.
+
+```
+[Client Query] ──> [Supabase Gateway] ──> [PostgreSQL Core] 
+                                                  │
+                                         (Kiểm tra RLS Rules)
+                                         ├── auth.uid() == user_id ?
+                                         └── role == 'admin' ?
+                                                  │
+                                        [ Cho phép / Từ chối ]
+```
+
+#### 3.2.3. Supabase Storage và Supabase Realtime (WebSocket)
+*   **Supabase Storage**: Quản lý lưu trữ file nhị phân lớn (ảnh, tài liệu). Hỗ trợ phân quyền truy cập file qua các chính sách RLS tương tự bảng dữ liệu thông thường.
+*   **Supabase Realtime**: Lắng nghe sự thay đổi của cơ sở dữ liệu (chèn mới, cập nhật, xóa) và phát tín hiệu đến client thông qua giao thức WebSockets. Đây là nền tảng cốt lõi giúp xây dựng khung bình luận thời gian thực mà không cần tự viết mã quản lý máy chủ WebSocket.
+
+### 3.3. Tailwind CSS & Ngôn ngữ lập trình TypeScript
+*   **Tailwind CSS**: Hỗ trợ xây dựng giao diện nhanh chóng bằng cách gán trực tiếp các lớp tiện ích cấu trúc (Utility classes) vào JSX. Tailwind giúp tối ưu hóa dung lượng CSS xuất bản nhờ cơ chế loại bỏ tự động các lớp không sử dụng (Purging).
+*   **TypeScript**: Giúp kiểm soát kiểu dữ liệu nghiêm ngặt trong suốt quá trình phát triển, giảm thiểu rủi ro lỗi runtime khi truyền nhận dữ liệu giữa Supabase Database và giao diện Next.js.
 
 ---
 
-## 8. TÀI LIỆU THAM KHẢO
+## 4. THIẾT KẾ CƠ SỞ DỮ LIỆU & PHÂN HỆ BẢO MẬT RLS
 
-1.  **Tài liệu hướng dẫn chính thức Next.js**: Hướng dẫn về kiến trúc App Router, React Server Components, Server Actions và tối ưu hóa SEO. Địa chỉ truy cập: `nextjs.org/docs`.
-2.  **Tài liệu hướng dẫn chính thức Supabase**: Hướng dẫn tích hợp thư viện Supabase SSR Client, cấu hình Row-Level Security, quản trị Auth, Storage và Realtime. Địa chỉ truy cập: `supabase.com/docs`.
-3.  **Tài liệu thiết kế giao diện Tailwind CSS**: Hướng dẫn xây dựng hệ thống CSS Variables, cấu hình responsive và thiết kế giao diện tối tối ưu. Địa chỉ truy cập: `tailwindcss.com/docs`.
-4.  **Tài liệu PostgreSQL**: Nghiên cứu về ngôn ngữ lập trình PL/pgSQL, thiết kế thủ tục trigger, stored procedure và tối ưu hóa truy vấn quan hệ. Địa chỉ truy cập: `postgresql.org/docs`.
-5.  **Tài liệu Docker & Docker Compose**: Hướng dẫn đóng gói ứng dụng đa tầng, tối ưu dung lượng Alpine image và quản lý container sản xuất. Địa chỉ truy cập: `docs.docker.com`.
-6.  **Tài liệu kiểm chuẩn hiệu năng Lighthouse của Google**: Hướng dẫn tối ưu các chỉ số Core Web Vitals (LCP, FID, CLS) và kỹ thuật nâng cao điểm số SEO. Địa chỉ truy cập: `developer.chrome.com/docs/lighthouse`.
+### 4.1. Sơ đồ thực thể liên kết (ERD) và các ràng buộc dữ liệu
+Cơ sở dữ liệu của hệ thống được chuẩn hóa để đảm bảo tối ưu hóa lưu trữ và truy vấn:
+1.  **Profiles (Hồ sơ người dùng)**:
+    *   Liên kết 1:1 với bảng hệ thống xác thực người dùng `auth.users` của Supabase.
+    *   Khóa chính là `id` kiểu UUID.
+2.  **Posts (Bài viết)**:
+    *   Liên kết 1:N với bảng `profiles` thông qua khóa ngoại `author_id`.
+    *   Khóa chính `id` kiểu UUID tự sinh ngẫu nhiên.
+3.  **Tags (Thẻ nhãn)**:
+    *   Lưu trữ danh sách tên thẻ tags duy nhất. Khóa chính `id` kiểu UUID.
+4.  **Post_tags (Bảng liên kết trung gian)**:
+    *   Giải quyết mối quan hệ Nhiều - Nhiều (M:N) giữa `posts` và `tags`.
+    *   Khóa chính tổng hợp từ `post_id` và `tag_id`.
+5.  **Comments (Bình luận)**:
+    *   Liên kết 1:N với bảng `posts` qua khóa ngoại `post_id`.
+    *   Liên kết 1:N với bảng `profiles` qua khóa ngoại `author_id`.
+
+```mermaid
+erDiagram
+    auth_users {
+        uuid id PK
+        string email
+    }
+    profiles {
+        uuid id PK "FK to auth.users"
+        string username
+        string full_name
+        string avatar_url
+        string bio
+        string role "author | admin"
+        timestamp created_at
+    }
+    posts {
+        uuid id PK
+        uuid author_id FK "FK to profiles"
+        string title
+        string slug
+        string content
+        string excerpt
+        string thumbnail_url
+        string status "draft | published"
+        int view_count
+        timestamp created_at
+        timestamp updated_at
+    }
+    tags {
+        uuid id PK
+        string name UK
+    }
+    post_tags {
+        uuid post_id PK, FK "FK to posts"
+        uuid tag_id PK, FK "FK to tags"
+    }
+    comments {
+        uuid id PK
+        uuid post_id FK "FK to posts"
+        uuid author_id FK "FK to profiles"
+        string content
+        timestamp created_at
+    }
+
+    auth_users ||--|| profiles : "extends"
+    profiles ||--o{ posts : "writes"
+    profiles ||--o{ comments : "writes"
+    posts ||--o{ comments : "contains"
+    posts ||--o{ post_tags : "links"
+    tags ||--o{ post_tags : "links"
+```
+
+### 4.2. Mã nguồn SQL khởi tạo Schema Cơ sở dữ liệu chi tiết
+Dưới đây là mã SQL hoàn chỉnh được lưu trữ tại file [schema.sql](file:///c:/Users/Wanh/.gemini/antigravity-ide/scratch/supabase-blog-cms/supabase/migrations/schema.sql) dùng để cấu hình toàn bộ cơ sở dữ liệu trên Supabase:
+
+```sql
+-- Enable UUID extension
+create extension if not exists "uuid-ossp";
+
+-- profiles table (extends auth.users)
+create table if not exists profiles (
+  id uuid references auth.users primary key,
+  username text unique not null,
+  full_name text,
+  avatar_url text,
+  bio text,
+  created_at timestamptz default now()
+);
+
+-- posts table
+create table if not exists posts (
+  id uuid primary key default gen_random_uuid(),
+  author_id uuid references profiles(id) on delete cascade not null,
+  title text not null,
+  slug text unique not null,
+  content text,
+  excerpt text,
+  thumbnail_url text,
+  status text default 'draft' check (status in ('draft','published')),
+  view_count int default 0,
+  created_at timestamptz default now(),
+  updated_at timestamptz default now()
+);
+
+-- tags table
+create table if not exists tags (
+  id uuid primary key default gen_random_uuid(),
+  name text unique not null
+);
+
+-- post_tags table
+create table if not exists post_tags (
+  post_id uuid references posts(id) on delete cascade,
+  tag_id uuid references tags(id) on delete cascade,
+  primary key (post_id, tag_id)
+);
+
+-- comments table
+create table if not exists comments (
+  id uuid primary key default gen_random_uuid(),
+  post_id uuid references posts(id) on delete cascade,
+  author_id uuid references profiles(id) on delete cascade not null,
+  content text not null,
+  created_at timestamptz default now()
+);
+
+-- Automatically update updated_at timestamp helper function
+create or replace function update_updated_at_column()
+returns trigger as $$
+begin
+  new.updated_at = now();
+  return new;
+end;
+$$ language plpgsql;
+
+-- Drop trigger if exists and create
+drop trigger if exists update_posts_updated_at on posts;
+create trigger update_posts_updated_at
+  before update on posts
+  for each row execute procedure update_updated_at_column();
+```
+
+Tiếp theo là phần thiết lập phân quyền mở rộng cho Quản trị viên trong file [00003_admin_role.sql](file:///c:/Users/Wanh/.gemini/antigravity-ide/scratch/supabase-blog-cms/supabase/migrations/00003_admin_role.sql):
+
+```sql
+-- 1. Add role column to profiles table
+alter table public.profiles add column if not exists role text default 'author' check (role in ('author', 'admin'));
+
+-- 2. Add admin policy for profiles
+create policy "Admins can do everything on profiles."
+  on public.profiles for all using (
+    exists (select 1 from public.profiles where id = auth.uid() and role = 'admin')
+  );
+
+-- 3. Add admin policy for posts
+create policy "Admins can do everything on posts."
+  on public.posts for all using (
+    exists (select 1 from public.profiles where id = auth.uid() and role = 'admin')
+  );
+
+-- 4. Add admin policy for comments
+create policy "Admins can do everything on comments."
+  on public.comments for all using (
+    exists (select 1 from public.profiles where id = auth.uid() and role = 'admin')
+  );
+
+-- 5. Add admin policy for tags
+create policy "Admins can do everything on tags."
+  on public.tags for all using (
+    exists (select 1 from public.profiles where id = auth.uid() and role = 'admin')
+  );
+
+-- 6. Add admin policy for post_tags
+create policy "Admins can do everything on post_tags."
+  on public.post_tags for all using (
+    exists (select 1 from public.profiles where id = auth.uid() and role = 'admin')
+  );
+```
+
+### 4.3. Thiết kế các chính sách bảo mật Row-Level Security (RLS)
+Để kích hoạt tính năng bảo mật Row-Level Security và tạo lập các quyền truy cập an toàn cho người dùng thông thường:
+
+```sql
+alter table profiles enable row level security;
+alter table posts enable row level security;
+alter table tags enable row level security;
+alter table post_tags enable row level security;
+alter table comments enable row level security;
+
+-- PROFILES POLICIES
+create policy "Public profiles are viewable by everyone" 
+  on profiles for select using (true);
+
+create policy "Users can update their own profile" 
+  on profiles for update using (auth.uid() = id);
+
+-- POSTS POLICIES
+create policy "Published posts are viewable by everyone" 
+  on posts for select using (status = 'published' or auth.uid() = author_id);
+
+create policy "Authenticated users can create posts" 
+  on posts for insert with check (auth.uid() = author_id);
+
+create policy "Authors can update their own posts" 
+  on posts for update using (auth.uid() = author_id);
+
+create policy "Authors can delete their own posts" 
+  on posts for delete using (auth.uid() = author_id);
+
+-- TAGS POLICIES
+create policy "Tags are viewable by everyone" on tags for select using (true);
+create policy "Authenticated users can insert tags" on tags for insert with check (auth.role() = 'authenticated');
+
+-- POST_TAGS POLICIES
+create policy "Post-tag mappings are viewable by everyone" on post_tags for select using (true);
+create policy "Authors can insert tags for their own posts" on post_tags for insert with check (
+  exists (select 1 from posts where posts.id = post_id and posts.author_id = auth.uid())
+);
+create policy "Authors can remove tags from their own posts" on post_tags for delete using (
+  exists (select 1 from posts where posts.id = post_id and posts.author_id = auth.uid())
+);
+
+-- COMMENTS POLICIES
+create policy "Comments are viewable by everyone" on comments for select using (true);
+create policy "Authenticated users can create comments" on comments for insert with check (auth.uid() = author_id);
+create policy "Authors can delete their comments, or post authors can delete comments on their posts" on comments for delete using (
+  auth.uid() = author_id or 
+  exists (select 1 from posts where posts.id = post_id and posts.author_id = auth.uid())
+);
+```
+
+### 4.4. Cơ chế đồng bộ hóa tự động qua Database Triggers & Functions
+
+#### 4.4.1. Hàm trigger tạo hồ sơ tự động từ tài khoản Auth
+Khi người dùng đăng ký qua API của Supabase Auth, dữ liệu sẽ được thêm vào bảng bảo mật `auth.users`. Để hiển thị thông tin này ra giao diện công khai mà không làm lộ thông tin đăng nhập, một trigger được cài đặt để tự động chèn một bản ghi tương ứng vào bảng `public.profiles`:
+
+```sql
+create or replace function public.handle_new_user()
+returns trigger as $$
+begin
+  insert into public.profiles (id, username, full_name, avatar_url)
+  values (
+    new.id,
+    coalesce(new.raw_user_meta_data->>'username', split_part(new.email, '@', 1)),
+    coalesce(new.raw_user_meta_data->>'full_name', split_part(new.email, '@', 1)),
+    new.raw_user_meta_data->>'avatar_url'
+  );
+  return new;
+end;
+$$ language plpgsql security definer;
+
+-- Trigger execution
+drop trigger if exists on_auth_user_created on auth.users;
+create trigger on_auth_user_created
+  after insert on auth.users
+  for each row execute procedure public.handle_new_user();
+```
+
+#### 4.4.2. Stored Procedure tăng lượt đọc (RPC views counter) bảo mật
+Độc giả vãng lai không được phép chỉnh sửa bài viết (SELECT được cho phép nhưng UPDATE bị chặn bởi RLS). Để cho phép họ tăng bộ đếm lượt xem khi đọc bài viết, hệ thống sử dụng một Stored Procedure được cấu hình ở chế độ `security definer` (chạy dưới quyền của người tạo cơ sở dữ liệu thay vì quyền của người truy cập):
+
+```sql
+create or replace function public.increment_views(post_id uuid)
+returns void as $$
+begin
+  update public.posts
+  set view_count = view_count + 1
+  where id = post_id;
+end;
+$$ language plpgsql security definer;
+```
+
+---
+
+## 5. HIỆN THỰC MÃ NGUỒN CHI TIẾT (SOURCE CODE IMPLEMENTATION)
+
+### 5.1. Cấu trúc thư mục dự án Next.js 14 App Router
+Dự án được cấu trúc khoa học và rõ ràng theo chuẩn thiết kế mới của Next.js:
+
+```
+/supabase-blog-cms
+├── /app                   # Các tuyến đường dẫn (Routing) và trang hiển thị
+│   ├── /(auth)            # Nhóm định tuyến xác thực (login, register)
+│   ├── /(blog)            # Giao diện hiển thị bài viết ngoài trang chủ
+│   │   ├── page.tsx       # Trang danh sách bài viết
+│   │   └── /[slug]        # Trang chi tiết bài viết
+│   ├── /admin             # Trang bảng điều khiển dành cho Quản trị viên
+│   ├── /dashboard         # Trang quản trị bài viết cá nhân của tác giả
+│   ├── layout.tsx         # Bố cục giao diện dùng chung
+│   ├── globals.css        # Cấu hình màu sắc, thiết kế CSS
+│   └── actions.ts         # Tập hợp toàn bộ Server Actions của hệ thống
+├── /components            # Các Component React dùng chung
+│   └── /blog              # Giao diện Navbar, Footer, Comments, v.v.
+├── /lib                   # Cấu hình kết nối hệ thống
+│   └── /supabase          # Khởi tạo kết nối Supabase client/server
+├── /supabase              # Mã nguồn SQL và tệp cấu hình database
+├── /types                 # Định nghĩa kiểu dữ liệu TypeScript
+├── Dockerfile             # Cấu hình đóng gói ứng dụng
+└── docker-compose.yml     # Quản lý khởi chạy container
+```
+
+### 5.2. Cấu hình kết nối Supabase Server-side & Client-side
+Để đảm bảo Next.js hoạt động chính xác cả ở môi trường máy chủ và trình duyệt web, cấu hình kết nối được chia thành hai phân hệ:
+1.  **Client-side Connection** [client.ts](file:///c:/Users/Wanh/.gemini/antigravity-ide/scratch/supabase-blog-cms/lib/supabase/client.ts): Sử dụng thư viện `@supabase/ssr` để tạo đối tượng kết nối chạy trên trình duyệt.
+2.  **Server-side Connection** [server.ts](file:///c:/Users/Wanh/.gemini/antigravity-ide/scratch/supabase-blog-cms/lib/supabase/server.ts): Tạo kết nối chạy trên Node.js Server, hỗ trợ truy cập và ghi đè cookie an toàn thông qua hàm `createClient`.
+
+Mã nguồn [server.ts](file:///c:/Users/Wanh/.gemini/antigravity-ide/scratch/supabase-blog-cms/lib/supabase/server.ts):
+```typescript
+import { createServerClient } from "@supabase/ssr";
+import { cookies } from "next/headers";
+
+export function createClient() {
+  const cookieStore = cookies();
+
+  return createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    {
+      cookies: {
+        getAll() {
+          return cookieStore.getAll();
+        },
+        setAll(cookiesToSet) {
+          try {
+            cookiesToSet.forEach(({ name, value, options }) =>
+              cookieStore.set(name, value, options)
+            );
+          } catch {
+            // The `setAll` method was called from a Server Component.
+            // This can be ignored if you have middleware refreshing
+            // user sessions.
+          }
+        },
+      },
+    }
+  );
+}
+```
+
+### 5.3. Xây dựng phân hệ xác thực và bảo vệ định tuyến (Middleware & Auth Guards)
+Next.js sử dụng một file [middleware.ts](file:///c:/Users/Wanh/.gemini/antigravity-ide/scratch/supabase-blog-cms/middleware.ts) nằm ở thư mục gốc để đánh chặn mọi yêu cầu truy cập và thực thi kiểm duyệt an ninh. 
+
+Logic xử lý an ninh được định nghĩa chi tiết trong [lib/supabase/middleware.ts](file:///c:/Users/Wanh/.gemini/antigravity-ide/scratch/supabase-blog-cms/lib/supabase/middleware.ts):
+
+```typescript
+import { createServerClient } from "@supabase/ssr";
+import { NextResponse, type NextRequest } from "next/server";
+
+export async function updateSession(request: NextRequest) {
+  let supabaseResponse = NextResponse.next({
+    request,
+  });
+
+  const supabase = createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    {
+      cookies: {
+        getAll() {
+          return request.cookies.getAll();
+        },
+        setAll(cookiesToSet) {
+          cookiesToSet.forEach(({ name, value }) => request.cookies.set(name, value));
+          supabaseResponse = NextResponse.next({
+            request,
+          });
+          cookiesToSet.forEach(({ name, value, options }) =>
+            supabaseResponse.cookies.set(name, value, options)
+          );
+        },
+      },
+    }
+  );
+
+  // Refresh session
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  const isDashboardRoute = request.nextUrl.pathname.startsWith("/dashboard");
+  const isAuthRoute =
+    request.nextUrl.pathname.startsWith("/login") ||
+    request.nextUrl.pathname.startsWith("/register");
+
+  // Protect /dashboard
+  if (isDashboardRoute && !user) {
+    const url = request.nextUrl.clone();
+    url.pathname = "/login";
+    return NextResponse.redirect(url);
+  }
+
+  // Redirect active sessions away from auth pages
+  if (isAuthRoute && user) {
+    const url = request.nextUrl.clone();
+    url.pathname = "/dashboard";
+    return NextResponse.redirect(url);
+  }
+
+  return supabaseResponse;
+}
+```
+
+### 5.4. Hiện thực các nghiệp vụ hệ thống qua Server Actions
+Mọi nghiệp vụ xử lý dữ liệu phức tạp được gom tập trung vào file [app/actions.ts](file:///c:/Users/Wanh/.gemini/antigravity-ide/scratch/supabase-blog-cms/app/actions.ts). Dưới đây là phân tích chi tiết mã nguồn xử lý cập nhật bài viết và liên kết tags Nhiều-Nhiều:
+
+```typescript
+// Update a Post Action
+export async function updatePostAction(
+  postId: string,
+  prevState: any,
+  formData: FormData
+): Promise<ActionState> {
+  const title = formData.get("title") as string;
+  const slug = formData.get("slug") as string;
+  const content = formData.get("content") as string;
+  const excerpt = formData.get("excerpt") as string;
+  const status = formData.get("status") as string;
+  const thumbnail_url = formData.get("thumbnail_url") as string;
+  const tagsString = formData.get("tags") as string;
+
+  if (!title || !slug) {
+    return { success: false, error: "Tiêu đề và đường dẫn (slug) là bắt buộc." };
+  }
+
+  const supabase = createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+
+  if (!user) {
+    return { success: false, error: "Bạn phải đăng nhập để thực hiện hành động này." };
+  }
+
+  try {
+    // Verify ownership
+    const { data: existingPost } = await supabase
+      .from("posts")
+      .select("author_id")
+      .eq("id", postId)
+      .single();
+
+    if (!existingPost || existingPost.author_id !== user.id) {
+      return { success: false, error: "Không được phép: Bạn không sở hữu bài viết này." };
+    }
+
+    // 1. Update the post
+    const { error: postError } = await supabase
+      .from("posts")
+      .update({
+        title,
+        slug: slug.toLowerCase().trim(),
+        content,
+        excerpt: excerpt || title.substring(0, 150),
+        thumbnail_url: thumbnail_url || null,
+        status: status || "draft",
+        updated_at: new Date().toISOString(),
+      })
+      .eq("id", postId);
+
+    if (postError) {
+      if (postError.code === "23505") {
+        return { success: false, error: "Một bài viết với đường dẫn (slug) này đã tồn tại." };
+      }
+      throw postError;
+    }
+
+    // 2. Clean old tags
+    await supabase.from("post_tags").delete().eq("post_id", postId);
+
+    // 3. Re-insert Tags if provided
+    if (tagsString) {
+      const tagNames = tagsString
+        .split(",")
+        .map((t) => t.trim().toLowerCase())
+        .filter(Boolean);
+
+      for (const name of tagNames) {
+        const { data: tag, error: tagError } = await supabase
+          .from("tags")
+          .upsert({ name }, { onConflict: "name" })
+          .select()
+          .single();
+
+        if (tagError) throw tagError;
+
+        if (tag) {
+          await supabase.from("post_tags").insert({
+            post_id: postId,
+            tag_id: tag.id,
+          });
+        }
+      }
+    }
+  } catch (err: any) {
+    console.error("Error updating post:", err);
+    return { success: false, error: err?.message || "Đã xảy ra lỗi ngoài ý muốn." };
+  }
+
+  revalidatePath("/");
+  revalidatePath("/dashboard");
+  revalidatePath(`/${slug}`);
+  redirect("/dashboard");
+}
+```
+
+### 5.5. Thiết kế và phát triển Client Components tương tác trực tiếp
+
+#### 5.5.1. Phân hệ Bình luận Realtime sử dụng WebSockets
+Phân hệ bình luận [CommentSection.tsx](file:///c:/Users/Wanh/.gemini/antigravity-ide/scratch/supabase-blog-cms/components/blog/CommentSection.tsx) hoạt động dựa trên cơ chế lắng nghe sự kiện từ kênh thời gian thực thông qua WebSockets. 
+
+Khi một độc giả gửi bình luận mới, ứng dụng sẽ thực hiện chèn dữ liệu vào bảng `comments`. Ngay lập tức, luồng kết nối WebSocket của Supabase sẽ gửi sự kiện chèn (`INSERT`) đến tất cả các máy khách đang kết nối để cập nhật danh sách hiển thị trên màn hình:
+
+```typescript
+// Lắng nghe sự thay đổi thời gian thực qua kênh WebSocket của Supabase
+useEffect(() => {
+  const channel = supabase
+    .channel(`post-comments-${postId}`)
+    .on(
+      "postgres_changes",
+      {
+        event: "*",
+        schema: "public",
+        table: "comments",
+        filter: `post_id=eq.${postId}`,
+      },
+      async (payload) => {
+        if (payload.eventType === "INSERT") {
+          // Lấy hồ sơ người dùng để có ảnh đại diện và tên hiển thị đầy đủ
+          const { data: profile } = await supabase
+            .from("profiles")
+            .select("*")
+            .eq("id", payload.new.author_id)
+            .single();
+
+          const newComment: Comment = {
+            id: payload.new.id,
+            post_id: payload.new.post_id,
+            author_id: payload.new.author_id,
+            content: payload.new.content,
+            created_at: payload.new.created_at,
+            author: (profile as Profile) || undefined,
+          };
+
+          setComments((prev) => {
+            if (prev.some((c) => c.id === newComment.id)) return prev;
+            return [...prev, newComment];
+          });
+        } else if (payload.eventType === "DELETE") {
+          setComments((prev) => prev.filter((c) => c.id !== payload.old.id));
+        }
+      }
+    )
+    .subscribe();
+
+  return () => {
+    supabase.removeChannel(channel);
+  };
+}, [postId, supabase]);
+```
+
+#### 5.5.2. Quản lý tải ảnh trực tiếp lên Supabase Storage
+Để tối ưu hóa hiệu năng, tác giả có thể tải ảnh trực tiếp từ trình duyệt lên Supabase Storage bucket mà không cần truyền dữ liệu file qua máy chủ Next.js (giảm tải băng thông cho serverless function):
+
+```typescript
+const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+  const file = e.target.files?.[0];
+  if (!file) return;
+
+  setUploading(true);
+  try {
+    const fileExt = file.name.split(".").pop();
+    const fileName = `${Math.random().toString(36).substring(2)}-${Date.now()}.${fileExt}`;
+    const filePath = `thumbnails/${fileName}`;
+
+    const { error: uploadError } = await supabase.storage
+      .from("post-thumbnails")
+      .upload(filePath, file);
+
+    if (uploadError) throw uploadError;
+
+    // Nhận URL tĩnh công khai của ảnh vừa tải lên
+    const { data: { publicUrl } } = supabase.storage
+      .from("post-thumbnails")
+      .getPublicUrl(filePath);
+
+    setThumbnailUrl(publicUrl);
+  } catch (err: any) {
+    console.error("Error uploading image:", err.message);
+  } finally {
+    setUploading(false);
+  }
+};
+```
+
+---
+
+## 6. ỨNG DỤNG TRÍ TUỆ NHÂN TẠO (AI) TRONG PHÁT TRIỂN PHẦN MỀM
+
+### 6.1. Cuộc cách mạng lập trình viên đồng hành (AI Pair Programmer)
+Sự chuyển dịch của mô hình phát triển phần mềm hiện đại nhấn mạnh vào việc sử dụng các trợ lý AI thông minh để rút ngắn thời gian lập trình và kiểm định. Trong suốt quá trình thực hiện dự án này, trợ lý AI đóng vai trò như một kỹ sư cao cấp đồng hành hỗ trợ phân tích cấu trúc mã nguồn, thiết kế kiến trúc hệ thống, phát hiện các lỗi cú pháp và đề xuất các giải pháp nâng cao hiệu năng.
+
+### 6.2. Ứng dụng AI trong việc thiết kế cơ sở dữ liệu và viết mã SQL
+Giai đoạn đầu của dự án, thiết kế cơ sở dữ liệu quan hệ luôn là phần việc đòi hỏi sự cẩn trọng cao nhất. Nhóm phát triển đã tận dụng trí tuệ nhân tạo để:
+1.  **Phác thảo cấu trúc ERD**: AI đã hỗ trợ định nghĩa các khóa ngoại, lựa chọn kiểu dữ liệu tối ưu (như timestamptz cho các trường thời gian để quản lý múi giờ chính xác, uuid cho các mã định danh để bảo mật).
+2.  **Soạn thảo các quy tắc bảo mật Row-Level Security (RLS)**: Việc viết các chính sách truy cập bằng SQL đôi khi phức tạp do phải lồng ghép các câu lệnh kiểm tra. AI đã hỗ trợ tối ưu các câu lệnh SQL kiểm tra quyền sở hữu bài viết và quyền tối cao của Admin.
+
+### 6.3. Giải quyết và khắc phục các lỗi logic, tối ưu hóa hệ thống bằng AI
+Trong quá trình phát triển dự án thực tế, AI đã trực tiếp giải quyết 3 điểm nghẽn kỹ thuật lớn:
+*   **Vấn đề Next.js Static Caching**: Khi tác giả xuất bản bài viết mới, độc giả ở trang chủ không thể nhìn thấy ngay do Next.js tự động cache trang HTML. AI đã phát hiện ra nguyên nhân và đề xuất bổ sung cơ chế `revalidatePath` ở cuối Server Action để xóa cache trang chủ và tải lại dữ liệu mới nhất.
+*   **Vấn đề Tải ảnh lên Storage**: Khi cấu hình Storage Bucket, ban đầu gặp lỗi 403 Forbidden khi tải ảnh lên từ phía client. AI đã chỉ ra rằng Bucket cần bật chế độ công khai để độc giả đọc được ảnh bìa, và cấu hình chính sách RLS cho phép người dùng có vai trò `authenticated` mới được thực hiện quyền ghi file (Insert).
+
+### 6.4. Các trường hợp thực tế và Prompt mẫu tương tác với AI
+Dưới đây mô tả các mẫu trao đổi nghiệp vụ thực tế giữa Lập trình viên và Trợ lý AI:
+
+*   **Prompt yêu cầu viết chính sách RLS cho bình luận**:
+    > *"Tôi đang xây dựng một ứng dụng Blog Next.js sử dụng Supabase làm backend. Tôi có bảng `comments` lưu trữ bình luận của độc giả dưới bài viết. Hãy viết cho tôi câu lệnh SQL để kích hoạt RLS và thiết lập chính sách bảo mật sau: Bất kỳ ai cũng đọc được bình luận, chỉ thành viên đăng nhập mới được viết bình luận, và chỉ có chính chủ bình luận hoặc tác giả của bài viết chứa bình luận đó mới có quyền xóa. Hãy phân tích cấu trúc logic."*
+*   **Mô tả phản hồi của AI**: AI đề xuất sử dụng hàm `auth.uid()` để so khớp trực tiếp với cột `author_id` trong bảng comments. Với quyền xóa của tác giả bài viết gốc, AI đã thiết kế một câu lệnh truy vấn phụ lồng `exists` để kiểm tra xem dòng dữ liệu bị xóa có thuộc bài viết mà người dùng hiện tại làm chủ sở hữu hay không, đảm bảo tính chặt chẽ của logic nghiệp vụ.
+
+---
+
+## 7. DOCKER CONTAINER HÓA & QUY TRÌNH TRIỂN KHAI THỰC TẾ (DEPLOYMENT)
+
+### 7.1. Nguyên lý Container hóa và tối ưu hóa Dockerfile đa tầng (Multi-stage Build)
+Đóng gói ứng dụng bằng Docker giúp cách ly ứng dụng hoàn toàn với hệ thống máy chủ, loại bỏ tình trạng lỗi thiếu môi trường Node.js hoặc thư viện không tương thích. Để giảm thiểu tối đa dung lượng Image chạy thực tế (Production Image), dự án áp dụng kỹ thuật **Dockerfile đa tầng (Multi-stage build)**:
+
+```dockerfile
+# Stage 1: Install dependencies
+FROM node:18-alpine AS deps
+RUN apk add --no-cache libc6-compat
+WORKDIR /app
+COPY package.json package-lock.json ./
+RUN npm ci
+
+# Stage 2: Build project
+FROM node:18-alpine AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
+# Thiết lập các biến môi trường giả lập để phục vụ tối ưu hóa Next.js ở pha build tĩnh
+ENV NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+ENV NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+ENV NEXT_TELEMETRY_DISABLED 1
+RUN npm run build
+
+# Stage 3: Lightweight production runner
+FROM node:18-alpine AS runner
+WORKDIR /app
+ENV NODE_ENV production
+ENV NEXT_TELEMETRY_DISABLED 1
+
+# Khởi tạo Group và User không có quyền root (Non-root) để bảo vệ container
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
+
+COPY --from=builder /app/public ./public
+RUN mkdir .next
+RUN chown nextjs:nodejs .next
+
+# Sao chép các tệp tin độc lập standalone tối ưu đã biên dịch từ Stage 2
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+
+USER nextjs
+EXPOSE 3000
+ENV PORT 3000
+ENV HOSTNAME "0.0.0.0"
+
+CMD ["node", "server.js"]
+```
+
+### 7.2. Tệp cấu hình Docker Compose và quản lý biến môi trường bảo mật
+Để đơn giản hóa quá trình vận hành khởi chạy container trên máy chủ ảo, file [docker-compose.yml](file:///c:/Users/Wanh/.gemini/antigravity-ide/scratch/supabase-blog-cms/docker-compose.yml) được cấu hình để ánh xạ cổng và tự động nạp các biến môi trường:
+
+```yaml
+version: "3.8"
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: blog_cms_app
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    restart: always
+```
+
+### 7.3. Quy trình deploy ứng dụng lên máy chủ VPS Linux thực tế
+Quá trình triển khai ứng dụng lên hệ điều hành Ubuntu Server trên máy chủ ảo VPS được thực hiện theo quy trình chuẩn:
+1.  **Đồng bộ mã nguồn**: Đẩy mã nguồn dự án lên GitHub và clone về thư mục làm việc trên máy chủ VPS.
+2.  **Nạp cấu hình thực tế**: Tạo file `.env` trên VPS chứa URL Supabase chính thức và các khóa API thực tế dành riêng cho môi trường Production.
+3.  **Khởi động container**: Chạy câu lệnh `docker compose up -d --build`. Lệnh này sẽ thực hiện build image theo cấu hình Dockerfile đa tầng và chạy container ẩn ở chế độ ngầm.
+
+### 7.4. Cấu hình Reverse Proxy Nginx & Tự động gia hạn chứng chỉ SSL Let's Encrypt
+Để trang web đón nhận lưu lượng truy cập công khai từ internet tại cổng chuẩn HTTP (80) và HTTPS (443), Nginx được cài đặt trên VPS đóng vai trò làm Proxy ngược (Reverse Proxy):
+
+```nginx
+server {
+    listen 80;
+    server_name myblog.com www.myblog.com;
+
+    location / {
+        proxy_pass http://localhost:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+}
+```
+
+Sử dụng công cụ **Certbot** để xin cấp và cài đặt tự động chứng chỉ SSL miễn phí từ tổ chức Let's Encrypt:
+`sudo certbot --nginx -d myblog.com -d www.myblog.com`
+
+Certbot sẽ cấu hình lại file Nginx để tự động chuyển hướng (Redirect 301) toàn bộ lưu lượng truy cập HTTP không bảo mật sang cổng bảo mật HTTPS (443), mã hóa toàn bộ dữ liệu truyền đi bằng thuật toán TLS hiện đại.
+
+---
+
+## 8. ĐÁNH GIÁ HỆ THỐNG, HẠN CHẾ & HƯỚNG PHÁT TRIỂN TƯƠNG LAI
+
+### 8.1. Đánh giá kết quả đạt được đối chiếu với mục tiêu ban đầu
+Trải qua quá trình triển khai, ứng dụng **Antigravity Blog/CMS** đã đạt được các kết quả nổi bật sau:
+*   **Hệ thống hoạt động ổn định**: Xây dựng thành công toàn bộ giao diện Blog của độc giả, trang dashboard viết bài của tác giả và bảng console điều khiển của Admin.
+*   **Bảo mật mức lõi**: Kích hoạt thành công RLS trên toàn bộ database. Dữ liệu bài viết, bình luận, hồ sơ được bảo vệ tuyệt đối từ mức cơ sở dữ liệu.
+*   **Hiệu năng vượt trội**: Nhờ cơ chế React Server Components và tối ưu hóa Docker đa tầng, dung lượng Production Image được thu nhỏ dưới 150MB, tốc độ tải trang ban đầu cực kỳ nhanh chóng.
+*   **Tương tác trực tiếp**: Tính năng bình luận cập nhật tức thì giúp tăng cường khả năng kết nối giữa độc giả và tác giả mà không làm hao phí tài nguyên máy chủ.
+
+### 8.2. Các hạn chế kỹ thuật hiện tại của hệ thống
+Mặc dù đã hoạt động tốt, hệ thống vẫn tồn tại một số điểm hạn chế cần cải tiến:
+1.  **Trình soạn thảo văn bản đơn giản**: Trình soạn thảo bài viết hiện tại chỉ sử dụng thẻ textarea nhập liệu ký tự Markdown thô, chưa trực quan đối với người dùng thông thường không quen sử dụng Markdown.
+2.  **Đếm lượt đọc chưa kiểm soát IP**: Bộ đếm lượt xem bài viết có thể dễ dàng bị làm giả số liệu bằng cách nhấn nút F5 tải lại trang liên tục.
+3.  **Bình luận chưa hỗ trợ phân nhánh**: Luồng bình luận chỉ hiển thị ở dạng danh sách phẳng theo thời gian, chưa hỗ trợ trả lời theo luồng (Threaded reply) đa cấp.
+
+### 8.3. Hướng phát triển và mở rộng tính năng thương mại hóa
+Để đưa ứng dụng trở thành một sản phẩm thương mại hoặc phục vụ các tòa soạn lớn hơn, các cải tiến công nghệ sau sẽ được thực hiện trong tương lai:
+*   **Tích hợp trình soạn thảo Rich WYSIWYG**: Tích hợp các bộ editor hiện đại như TipTap hoặc EditorJS cho phép viết bài theo khối, kéo thả ảnh trực quan và định dạng văn bản trực tiếp.
+*   **Tích hợp Redis làm bộ nhớ đệm kiểm soát lượt đọc**: Sử dụng Redis để lưu giữ IP của độc giả trong vòng 24 giờ, ngăn chặn các hành vi tăng lượt đọc ảo.
+*   **Tích hợp trợ lý sáng tạo nội dung AI (Gemini API)**: Kết nối trực tiếp hệ thống viết bài với Gemini API để tự động phát hiện lỗi chính tả, đề xuất sửa văn phong, tự sinh đoạn tóm tắt bài viết (excerpt) và phân tích từ khóa tối ưu hóa SEO tự động cho tác giả.
+*   **Hệ thống bình luận đa cấp**: Chuyển đổi bảng Bình luận sang dạng cấu trúc tự tham chiếu (Self-referencing table) hỗ trợ bình luận lồng nhau không giới hạn cấp độ.
+
+---
+
+## 9. TÀI LIỆU THAM KHẢO
+
+1.  **Next.js 14 Documentation**: Hướng dẫn chi tiết kiến trúc App Router, React Server Components, Server Actions và tối ưu hóa SEO. Địa chỉ: `https://nextjs.org/docs`.
+2.  **Supabase Database & Security Guide**: Tài liệu cấu hình cơ sở dữ liệu PostgreSQL, các quy tắc bảo mật Row-Level Security (RLS) và hướng dẫn thiết lập SDK. Địa chỉ: `https://supabase.com/docs`.
+3.  **Tailwind CSS Customization**: Kỹ thuật tối ưu hóa CSS bundle, thiết kế giao diện sáng/tối và cấu hình các biến CSS variables. Địa chỉ: `https://tailwindcss.com/docs`.
+4.  **PostgreSQL Procedural Languages (PL/pgSQL)**: Nghiên cứu các cú pháp lập trình stored procedure, trigger, và quản trị cơ sở dữ liệu quan hệ nâng cao. Địa chỉ: `https://www.postgresql.org/docs`.
+5.  **Docker and Docker Compose Deployment Guides**: Tài liệu tối ưu hóa Alpine images, container hóa Node.js ứng dụng và quản trị dịch vụ mạng. Địa chỉ: `https://docs.docker.com`.
+6.  **Google Web Vitals & PageSpeed Optimization**: Các chỉ số LCP, FID, CLS và phương pháp nâng cao điểm chất lượng trải nghiệm trang web. Địa chỉ: `https://web.dev/vitals`.
